@@ -19,5 +19,41 @@ int main()
     C[1] = (int *)malloc(4 * sizeof(int));
     C[2] = (int *)malloc(4 * sizeof(int));
 
+    printf("A\n");
+    // traversing through A -> gives 2-d array of the provided values.
+    for(int i=0;i<3;i++)
+    {
+        for(int j=0;j<4;j++)
+        {
+            printf("%d",A[i][j]);
+            printf(",");
+        }
+        printf("\n");
+    }
+
+    printf("B\n");
+    // traversing through B -> gives 2-d array of the garbage values.
+    for(int i=0;i<3;i++)
+    {
+        for(int j=0;j<4;j++)
+        {
+            printf("%d",B[i][j]);
+            printf(",");
+        }
+        printf("\n");
+    }
+
+    printf("C\n");
+    // traversing through C -> gives 2-d array of the garbage values.
+    for(int i=0;i<3;i++)
+    {
+        for(int j=0;j<4;j++)
+        {
+            printf("%d",C[i][j]);
+            printf(",");
+        }
+        printf("\n");
+    }
+
     return 0;
 }
