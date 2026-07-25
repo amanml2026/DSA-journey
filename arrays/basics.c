@@ -7,5 +7,11 @@ int main()
     int C[5] = {0}; // gives array of size 5 with all elements 0.
     int D[] = {1,2,3,4}; // generate array of size 4 .
 
+    for(int i = 0;i<5;i++)
+    {
+        printf("%u\n",&A[i]); // addresses are contiguous in array i.e x,x+4,x+8...as int are 4 bytes.
+
+    }
+
     return 0;
 }
