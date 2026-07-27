@@ -8,6 +8,7 @@ struct Array{
     int length;
 };
 void display(struct Array arr); // display function
+void append(struct Array *arr,int x); // append function
 
 int main()
 {
@@ -39,6 +40,10 @@ int main()
     arr.length = n; // setting the length = no. of elements in array
     display(arr); // displaying the array
 
+    append(&arr,12); // appending an element
+
+    display(arr); // displaying with the appended element
+
     return 0;
 }
 // function to display the elements of the array:
@@ -50,5 +55,19 @@ void display(struct Array arr)
     for(i=0;i<arr.length;i++)
     {
         printf("%d ",arr.A[i]);
+    }
+}
+
+// function to append the element in array:
+void append(struct Array *arr,int x)
+{
+    if (((arr->length) + 1) <= (arr->size)) // checking for the space in array 
+    {
+        arr->A[arr->length] = x;
+        arr->length++;
+        printf("\nSuccessfully appended %i\n",x);
+    }
+    else{
+        printf("\nArray is full!\n"); // array is full . size = length
     }
 }
