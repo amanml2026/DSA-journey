@@ -7,6 +7,7 @@ struct Array{
     int size;
     int length;
 };
+void display(struct Array arr); // display function
 
 int main()
 {
@@ -25,7 +26,7 @@ int main()
     // checking that the number of elements user wants to insert doesn't exceed the size of the array.
     if(n > arr.size)
     {
-        printf("Size of the array is %i",arr.size);
+        printf("Size of the array is %i! You cant exceed sorry.",arr.size);
         return 1;
     }
     printf("Enter the elements :");
@@ -36,6 +37,18 @@ int main()
         scanf("%d",&arr.A[i]);
     }
     arr.length = n; // setting the length = no. of elements in array
+    display(arr); // displaying the array
 
     return 0;
+}
+// function to display the elements of the array:
+void display(struct Array arr)
+{
+    int i;
+
+    printf("The elements are :\n");
+    for(i=0;i<arr.length;i++)
+    {
+        printf("%d ",arr.A[i]);
+    }
 }
