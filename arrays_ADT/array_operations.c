@@ -7,8 +7,9 @@ struct Array{
     int size;
     int length;
 };
-void display(struct Array arr); // display function
-void append(struct Array *arr,int x); // append function
+void display(struct Array arr); // display 
+void append(struct Array *arr,int x); // append 
+void insert(struct Array *arr,int index,int x); // insert at given index
 
 int main()
 {
@@ -41,7 +42,7 @@ int main()
     display(arr); // displaying the array
 
     append(&arr,12); // appending an element
-
+    insert(&arr,3,22);
     display(arr); // displaying with the appended element
 
     return 0;
@@ -70,4 +71,20 @@ void append(struct Array *arr,int x)
     else{
         printf("\nArray is full!\n"); // array is full . size = length
     }
+}
+
+// function to insert a element at given index
+void insert(struct Array *arr,int index,int x)
+{
+    if (((arr->length) + 1) <= (arr->size) && (index < arr->size)) // checking the index is valid and there is space in array to shift elements
+    {
+        int i;
+        // shifting elements after the given index to get free space at given index
+        for(i=arr->length;i>index;i--)
+        {
+            arr->A[i] = arr->A[i-1]; 
+        }
+        arr->A[index] = x; // inserting element in free space
+        arr->length++;
+    }   
 }
