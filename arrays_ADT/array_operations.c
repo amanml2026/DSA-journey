@@ -44,7 +44,7 @@ int main()
 
     append(&arr,12); // appending an element
     delete(&arr,4); // deleting an element
-    insert(&arr,3,22);
+    insert(&arr,3,22); // inserting 22 at index 3 
     display(arr); // displaying with the appended element
 
     return 0;
