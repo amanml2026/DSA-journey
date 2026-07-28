@@ -10,6 +10,7 @@ struct Array{
 void display(struct Array arr); // display 
 void append(struct Array *arr,int x); // append 
 void insert(struct Array *arr,int index,int x); // insert at given index
+void delete(struct Array *arr,int index); // deleting an element of given index
 
 int main()
 {
@@ -42,6 +43,7 @@ int main()
     display(arr); // displaying the array
 
     append(&arr,12); // appending an element
+    delete(&arr,4); // deleting an element
     insert(&arr,3,22);
     display(arr); // displaying with the appended element
 
@@ -87,4 +89,21 @@ void insert(struct Array *arr,int index,int x)
         arr->A[index] = x; // inserting element in free space
         arr->length++;
     }   
+}
+
+// function to delete the element at given index
+void delete(struct Array *arr,int index)
+{
+    if (index <0 || index >= arr->length) // checking for a valid index
+    {
+        printf("Invalid index.");
+    }
+    else{
+        int i;
+        for(i=index;i<(arr->length)-1;i++)
+        {
+            arr->A[i] = arr->A[i+1];
+        }
+        arr->length--;
+    }
 }
