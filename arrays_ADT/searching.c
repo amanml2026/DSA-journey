@@ -12,10 +12,16 @@ int LinearSearch_tr(struct Array *arr,int key); // linear search with transpose
 void swap(int *x,int *y); // swap elements
 int LinearSearch_head(struct Array *arr,int key); // linear search with key element moving to head
 void display(struct Array arr); // displaying array elements
+int iter_BinarySearch(struct Array arr , int key); // iterative binary search
 
 int main()
 {
     struct Array arr = {{2,4,6,8,10},10,5}; // array
+
+    /* implemented binary search before linear search because in linear search we are 
+    changing order of elements and in binary search we want a sorted array*/
+    
+    printf("%d\n",iter_BinarySearch(arr,10)); // successful iterative binary search
     printf("%d\n",LinearSearch_tr(&arr,8)); // successful search 
     display(arr);
     printf("%d\n",LinearSearch_tr(&arr,12)); // unsuccessful search -> returns -1
@@ -57,6 +63,31 @@ int LinearSearch_head(struct Array *arr,int key)
         }
     }
     return -1; // search unsuccessful
+}
+
+// binary search iterative form:
+int iter_BinarySearch(struct Array arr , int key)
+{
+    int l,h,mid;
+    l = 0;
+    h = arr.length-1;
+    
+    while(l<=h)
+    {
+        mid = (l+h)/2;
+        if (key==arr.A[mid])
+        {
+            return mid; // search successful
+        }
+        else if(key > arr.A[mid])
+        {
+            l = mid + 1; // moving to right side
+        }
+        else{
+            h = mid - 1; // moving to left side
+        }
+    }
+    return -1; // unsuccessful search
 }
 // swapping the elements
 void swap(int *x,int *y)
