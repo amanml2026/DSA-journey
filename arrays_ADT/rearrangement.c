@@ -10,6 +10,7 @@ struct Array{
 void display(struct Array arr); // display
 void reverse_aux(struct Array *arr); // reversing using auxillary array
 void reverse_twoP(struct Array *arr); // reversing using two pointers
+void shift(struct Array *arr,char direction); // shifting the array in given direction and setting the missing space=0
 
 int main()
 {
@@ -18,6 +19,10 @@ int main()
     reverse_aux(&arr); // reversing using auxillary array
     display(arr);
     reverse_twoP(&arr); // again reversing using two pointers -> return original unchanched array
+    display(arr);
+    shift(&arr,'l'); // left shifting
+    display(arr);
+    shift(&arr,'r'); // right shifting
     display(arr);
     return 0;
 }
@@ -46,6 +51,28 @@ void reverse_twoP(struct Array *arr)
         int temp = arr->A[i];
         arr->A[i] = arr->A[j];
         arr->A[j] = temp;
+    }
+}
+// Shifting
+void shift(struct Array *arr,char direction)
+{
+    int i;
+    if(direction == 'r') // right shifitng
+    {
+        for(i=arr->length-2;i>=0;i--)
+        {
+            arr->A[i+1] = arr->A[i];
+        }
+        arr->A[0] = 0; // missing space
+
+    }
+    if(direction == 'l') // left shifting
+    {
+        for(i=1;i<arr->length;i++)
+        {
+            arr->A[i-1] = arr->A[i];
+        }
+        arr->A[arr->length-1] = 0; // missing space
     }
 }
 // display array
