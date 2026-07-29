@@ -11,6 +11,7 @@ void display(struct Array arr); // display
 void append(struct Array *arr,int x); // append 
 void insert(struct Array *arr,int index,int x); // insert at given index
 void delete(struct Array *arr,int index); // deleting an element of given index
+int Get(struct Array arr,int index); // getting an element of given index
 
 int main()
 {
@@ -46,6 +47,7 @@ int main()
     delete(&arr,4); // deleting an element
     insert(&arr,3,22); // inserting 22 at index 3 
     display(arr); // displaying with the appended element
+    printf("\n%d",Get(arr,4)); // element at given index
 
     return 0;
 }
@@ -105,5 +107,14 @@ void delete(struct Array *arr,int index)
             arr->A[i] = arr->A[i+1];
         }
         arr->length--;
+    }
+}
+
+// getting an element of given index
+int Get(struct Array arr,int index)
+{
+    if(index>0 && index<arr.length)
+    {
+        return arr.A[index];
     }
 }
