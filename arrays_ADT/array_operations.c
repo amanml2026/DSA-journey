@@ -12,6 +12,7 @@ void append(struct Array *arr,int x); // append
 void insert(struct Array *arr,int index,int x); // insert at given index
 void delete(struct Array *arr,int index); // deleting an element of given index
 int Get(struct Array arr,int index); // getting an element of given index
+void Set(struct Array *arr,int index,int x); // replacing element with given integer at given index.
 
 int main()
 {
@@ -46,6 +47,7 @@ int main()
     append(&arr,12); // appending an element
     delete(&arr,4); // deleting an element
     insert(&arr,3,22); // inserting 22 at index 3 
+    Set(&arr,1,69); // replacing the element at index 1 with 69
     display(arr); // displaying with the appended element
     printf("\n%d",Get(arr,4)); // element at given index
 
@@ -116,5 +118,14 @@ int Get(struct Array arr,int index)
     if(index>0 && index<arr.length)
     {
         return arr.A[index];
+    }
+}
+
+// setting a given integer on an index 
+void Set(struct Array *arr,int index,int x)
+{
+    if(index>0 && index<arr->length)
+    {
+        arr->A[index] = x;
     }
 }
