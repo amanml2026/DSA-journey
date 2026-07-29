@@ -11,6 +11,7 @@ struct Array{
 int max(struct Array arr); // maximum of given array
 int min(struct Array arr); // minimum of an array
 int sum(struct Array arr); // sum of all the elements of an array
+float avg(struct Array arr); // average of all the elements
 
 int main()
 {
@@ -21,6 +22,8 @@ int main()
     printf("The minimum of this array is %d\n",min(arr));
     //sum
     printf("The sum of the elements is %d\n",sum(arr));
+    // avg
+    printf("The average of the elements is %.2f\n",avg(arr)); // used %.2f because output of avg function is a float and we want 2 decimals only.
 
     return 0;
 }
@@ -64,4 +67,15 @@ int sum(struct Array arr)
         sum = sum + arr.A[i];
     }
     return sum;
+}
+// finding the average of the elements of an array
+float avg(struct Array arr) // float used otherwise in integer we will get the floor value.
+{
+    float sum = 0;
+    int i;
+    for(i=0;i<arr.length;i++)
+    {
+        sum = sum + arr.A[i];
+    }
+    return sum/arr.length; 
 }
