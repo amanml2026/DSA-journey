@@ -11,6 +11,7 @@ void display(struct Array arr); // display
 void reverse_aux(struct Array *arr); // reversing using auxillary array
 void reverse_twoP(struct Array *arr); // reversing using two pointers
 void shift(struct Array *arr,char direction); // shifting the array in given direction and setting the missing space=0
+void rotate(struct Array *arr,char direction); // rotating array in given direction
 
 int main()
 {
@@ -19,6 +20,8 @@ int main()
     reverse_aux(&arr); // reversing using auxillary array
     display(arr);
     reverse_twoP(&arr); // again reversing using two pointers -> return original unchanched array
+    display(arr);
+    rotate(&arr,'l'); // left rotation
     display(arr);
     shift(&arr,'l'); // left shifting
     display(arr);
@@ -73,6 +76,30 @@ void shift(struct Array *arr,char direction)
             arr->A[i-1] = arr->A[i];
         }
         arr->A[arr->length-1] = 0; // missing space
+    }
+}
+// rotation
+void rotate(struct Array *arr,char direction)
+{
+    int i;
+    if(direction == 'r') // right shifitng
+    {
+        int temp = arr->A[arr->length-1]; // last element 
+        for(i=arr->length-2;i>=0;i--)
+        {
+            arr->A[i+1] = arr->A[i];
+        }
+        arr->A[0] = temp; // last element becomes first element
+
+    }
+    if(direction == 'l') // left shifting
+    {
+        int temp = arr->A[0];
+        for(i=1;i<arr->length;i++)
+        {
+            arr->A[i-1] = arr->A[i];
+        }
+        arr->A[arr->length-1] = temp; // first element becomes last element
     }
 }
 // display array
