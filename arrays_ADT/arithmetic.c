@@ -10,6 +10,7 @@ struct Array{
 
 int max(struct Array arr); // maximum of given array
 int min(struct Array arr); // minimum of an array
+int sum(struct Array arr); // sum of all the elements of an array
 
 int main()
 {
@@ -18,6 +19,8 @@ int main()
     printf("The maximum of this array is %d\n",max(arr));
     //minimum
     printf("The minimum of this array is %d\n",min(arr));
+    //sum
+    printf("The sum of the elements is %d\n",sum(arr));
 
     return 0;
 }
@@ -50,4 +53,15 @@ int min(struct Array arr)
         }
     }
     return min;
+}
+// finding sum of elements of the array
+int sum(struct Array arr)
+{
+    int sum = 0;
+    int i;
+    for(i=0;i<arr.length;i++)
+    {
+        sum = sum + arr.A[i];
+    }
+    return sum;
 }
