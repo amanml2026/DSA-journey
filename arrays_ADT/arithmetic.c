@@ -9,13 +9,16 @@ struct Array{
 };
 
 int max(struct Array arr); // maximum of given array
+int min(struct Array arr); // minimum of an array
 
 int main()
 {
-    struct Array arr = {{24,42,61,84,10},10,5}; // array
+    struct Array arr = {{24,42,61,84,100},10,5}; // array
     // maximum
-    printf("The maximum of this array is %d",max(arr));
-    
+    printf("The maximum of this array is %d\n",max(arr));
+    //minimum
+    printf("The minimum of this array is %d\n",min(arr));
+
     return 0;
 }
 
@@ -32,4 +35,19 @@ int max(struct Array arr)
         }
     }
     return max;
+}
+
+// minimum of an array
+int min(struct Array arr)
+{
+    int min,i;
+    min = arr.A[0];
+    for(i=1;i<arr.length;i++) // iterated from second element because first is already set as min
+    {
+        if(arr.A[i]<min)
+        {
+            min = arr.A[i];
+        }
+    }
+    return min;
 }
