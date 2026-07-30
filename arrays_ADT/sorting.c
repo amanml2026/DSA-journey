@@ -12,10 +12,13 @@ struct Array{
 void display(struct Array arr); // displaying the array
 bool isSorted(struct Array arr);// check for sorted array
 void sortInsert(struct Array *arr,int x); // inserting element in sorted array
+void NegativeShift(struct Array *arr); // shifting negative elements to left
 
 int main()
 {
-    struct Array arr = {{2,4,5,9,11,12},10,6};
+    struct Array arr = {{-2,4,5,-9,-11,12},10,6};
+    display(arr);
+    NegativeShift(&arr); // negative elements shift to left
     display(arr);
     printf("%d\n",isSorted(arr));
     sortInsert(&arr,7); // inserting 7 in sorted array
@@ -69,5 +72,24 @@ void sortInsert(struct Array *arr,int x)
     }
     else{
         printf("Array is full\n");
+    }
+}
+// shifting negative elements to left side
+void NegativeShift(struct Array *arr)
+{
+    // initialising two indexes
+    int i = 0;
+    int j = arr->length-1;
+    while(i<j) // loop runs till i<j so list all elements are iterated once
+    {
+        while(i<arr->length && arr->A[i]<0){i++;} // if there is negative element then move left to right else stops when positive element found
+        while(j>0 && arr->A[j]>=0 ){j--;} // if there is positive element then move right to left else stops at negative element
+        if(i<j)
+        {
+            // swapping positive element with negative one
+            int temp = arr->A[i];
+            arr->A[i] = arr->A[j];
+            arr->A[j] = temp;
+        }
     }
 }
