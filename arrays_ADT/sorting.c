@@ -59,12 +59,13 @@ void sortInsert(struct Array *arr,int x)
         if(isSorted(*arr) == 1)
         {
             int i=arr->length-1;
-            while(x<arr->A[i])
+            while(i>=0 && x<arr->A[i])
             {
                 arr->A[i+1] = arr->A[i];
                 i--;
             }
             arr->A[i+1] = x;
+            arr->length++;
         }
         else{
             printf("Array must be sorted\n ");
