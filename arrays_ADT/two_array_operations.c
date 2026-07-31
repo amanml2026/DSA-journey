@@ -14,5 +14,18 @@ int main()
     struct Array arr1 = {{2,4,12,13,18,21},100,6}; // array1 with length 6
     struct Array arr2 = {{3,7,11,13,14,19,30},100,7}; // array2 with length 7
 
-    
+    struct Array *arr3;
+}
+
+// display function
+void display(struct Array arr)
+{
+    int i;
+
+    printf("\nThe elements are :\n");
+    for(i=0;i<arr.length;i++)
+    {
+        printf("%d ",arr.A[i]);
+    }
+    printf("\n");
 }
