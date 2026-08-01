@@ -82,7 +82,20 @@ struct Array *Union_unsorted(struct Array *arr1,struct Array *arr2)
     {
         for (j=0;j<arr2->length;j++)
         {
-            
+            if
         }
     }
+}
+
+int Search(struct Array *arr,int key) 
+{
+    int i;
+    for (i = 0;i<arr->length;i++)
+    {
+        if (arr->A[i] == key)
+        {
+            return 0; // search successful
+        }
+    }
+    return -1; // search unsuccessful
 }
