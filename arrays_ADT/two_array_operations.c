@@ -67,3 +67,22 @@ struct Array *Merge(struct Array *arr1,struct Array *arr2) //returning pointer t
     arr3->length = arr1->length + arr2->length; // setting the length of arr3 to be equal to sum of lengths of arr1 and arr2.
     return arr3; // returning arr3 which is a pointer to merged array
 }
+
+// union of two unsorted sets(arrays) 
+struct Array *Union_unsorted(struct Array *arr1,struct Array *arr2)
+{
+    struct Array *arr3 = (struct Array *)malloc(sizeof(struct Array));
+    int i,j,k;
+    for(i=0,k=0;i<arr1->length;i++,k++)
+    {
+        arr3->A[k] = arr1->A[i];
+    }
+    arr3->length = arr1->length;
+    for(i=0;i<arr1->length;i++)
+    {
+        for (j=0;j<arr2->length;j++)
+        {
+            
+        }
+    }
+}
