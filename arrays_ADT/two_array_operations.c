@@ -13,6 +13,7 @@ struct Array *Union_unsorted(struct Array *arr1,struct Array *arr2); //union of 
 int Search(struct Array *arr,int key); //search -- gives 0 for successful search and -1 for unsuccessful one.
 struct Array *Union_sorted(struct Array *arr1,struct Array *arr2);
 struct  Array *Intersection_unsorted(struct Array *arr1,struct Array *arr2);
+struct Array *Intersection_sorted(struct Array *arr1,struct Array *arr2);
 
 int main()
 {
@@ -31,7 +32,12 @@ int main()
     struct Array *arr6;
     arr6 = Intersection_unsorted(&arr1,&arr2);
     display(*arr6);
-    
+    struct Array *arr7;
+    arr7 = Intersection_sorted(&arr1,&arr2);
+    display(*arr7);
+
+    return 0;
+
 }
 
 // display function
@@ -172,7 +178,36 @@ struct  Array *Intersection_unsorted(struct Array *arr1,struct Array *arr2)
     }
     return arr3;
 }
-
+// sorted arrays intersection : O(n)
+struct Array *Intersection_sorted(struct Array *arr1,struct Array *arr2)
+{
+    int i,j,k;
+    i=j=k=0;
+    struct Array *arr3 = (struct Array *)malloc(sizeof(struct Array)); // pointer for third array in heap
+    arr3->size = 100; // size of the arr3
+    arr3->length = 0;
+    while(i<arr1->length && j<arr2->length) // boundary check
+    {
+        if(arr1->A[i]>arr2->A[j])
+        {
+            j++;
+        }
+        else if(arr1->A[i]<arr2->A[j])
+        {
+            i++;
+        }
+        else
+        {
+            arr3->A[k] = arr1->A[i];
+            i++;
+            j++;
+            k++;
+            arr3->length++;
+        }
+        
+    }
+    return arr3; // returning arr3 which is a pointer to merged array
+}
 
 int Search(struct Array *arr,int key) 
 {
