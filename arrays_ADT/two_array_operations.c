@@ -12,6 +12,7 @@ void display(struct Array arr); // displaying array
 struct Array *Union_unsorted(struct Array *arr1,struct Array *arr2); //union of two unsorted arrays.
 int Search(struct Array *arr,int key); //search -- gives 0 for successful search and -1 for unsuccessful one.
 struct Array *Union_sorted(struct Array *arr1,struct Array *arr2);
+struct  Array *Intersection_unsorted(struct Array *arr1,struct Array *arr2);
 
 int main()
 {
@@ -27,6 +28,9 @@ int main()
     struct Array *arr5;
     arr5 = Union_sorted(&arr1,&arr2);
     display(*arr5);
+    struct Array *arr6;
+    arr6 = Intersection_unsorted(&arr1,&arr2);
+    display(*arr6);
     
 }
 
@@ -149,6 +153,26 @@ struct Array *Union_sorted(struct Array *arr1,struct Array *arr2)
     
     return arr3; // returning arr3 which is a pointer to merged array
 }
+// unsorted arrays intersection : O(n^2)
+struct  Array *Intersection_unsorted(struct Array *arr1,struct Array *arr2)
+{
+    struct Array *arr3;
+    arr3 = (struct Array *)malloc(sizeof(struct Array));
+    arr3->size = 100;
+    int i,j,k;
+    k = 0;
+    for(i=0;i<arr1->length;i++)
+    {
+        if(Search(arr2,arr1->A[i])==0) // successful search
+        {
+            arr3->A[k] = arr1->A[i];
+            k++;
+            arr3->length++;
+        }
+    }
+    return arr3;
+}
+
 
 int Search(struct Array *arr,int key) 
 {
