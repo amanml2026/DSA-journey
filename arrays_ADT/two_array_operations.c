@@ -9,15 +9,24 @@ struct Array{
 };
 struct Array *Merge(struct Array *arr1,struct Array *arr2); // Merging two sorted arrays
 void display(struct Array arr);
+struct Array *Union_unsorted(struct Array *arr1,struct Array *arr2);
+int Search(struct Array *arr,int key);
 
 int main()
 {
-    struct Array arr1 = {{2,4,12,13,18,21},100,6}; // array1 with length 6
+    struct Array arr1 = {{2,4,12,13,19,21},100,6}; // array1 with length 6
     struct Array arr2 = {{3,7,11,13,14,19,30},100,7}; // array2 with length 7
 
     struct Array *arr3; // pointer for the merged array
     arr3 = Merge(&arr1,&arr2);
     display(*arr3); // displaying merged array
+    struct Array *arr4;
+    arr4 = Union_unsorted(&arr1,&arr2);
+    display(*arr4);
+    {
+        /* data */
+    };
+    
 }
 
 // display function
@@ -73,18 +82,24 @@ struct Array *Union_unsorted(struct Array *arr1,struct Array *arr2)
 {
     struct Array *arr3 = (struct Array *)malloc(sizeof(struct Array));
     int i,j,k;
-    for(i=0,k=0;i<arr1->length;i++,k++)
-    {
-        arr3->A[k] = arr1->A[i];
-    }
-    arr3->length = arr1->length;
+    arr3->size = 100;
     for(i=0;i<arr1->length;i++)
     {
-        for (j=0;j<arr2->length;j++)
+        arr3->A[i] = arr1->A[i];
+    }
+    arr3->length = arr1->length;
+
+    k = arr3->length;
+    for(j=0;j<arr2->length;j++)
+    {
+        if(Search(arr1,arr2->A[j])== -1)
         {
-            if
+            arr3->A[k] = arr2->A[j];
+            k++;
+            arr3->length++;
         }
     }
+    return arr3;
 }
 
 int Search(struct Array *arr,int key) 
