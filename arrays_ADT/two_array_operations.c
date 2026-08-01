@@ -14,6 +14,7 @@ int Search(struct Array *arr,int key); //search -- gives 0 for successful search
 struct Array *Union_sorted(struct Array *arr1,struct Array *arr2); // gives union of sorted arrays
 struct  Array *Intersection_unsorted(struct Array *arr1,struct Array *arr2); // gives intersection of two unsorted arrays
 struct Array *Intersection_sorted(struct Array *arr1,struct Array *arr2); // gives intersection of two sorted arrays
+struct Array *Difference_unsorted(struct Array *arr1,struct Array *arr2);
 
 int main()
 {
@@ -35,6 +36,9 @@ int main()
     struct Array *arr7;
     arr7 = Intersection_sorted(&arr1,&arr2); // sorted arrays intersection
     display(*arr7);
+    struct Array *arr8;
+    arr8 = Difference_unsorted(&arr1,&arr2); // sorted arrays intersection
+    display(*arr8);
 
     return 0;
 
@@ -207,6 +211,26 @@ struct Array *Intersection_sorted(struct Array *arr1,struct Array *arr2)
         
     }
     return arr3; // returning arr3 which is a pointer to merged array
+}
+// Difference of two unsorted arrays i.e arr1-arr2 --> O(n^2)
+struct Array *Difference_unsorted(struct Array *arr1,struct Array *arr2)
+{
+    struct Array*arr3;
+    arr3 = (struct Array *)malloc(sizeof(struct Array));
+    arr3->length = 0;
+    arr3->size = 100;
+    int i,k;
+    k=0;
+    for(i=0;i<arr1->length;i++)
+    {
+        if(Search(arr2,arr1->A[i])== -1)
+        {
+            arr3->A[k] = arr1->A[i];
+            k++;
+            arr3->length++;
+        }
+    }
+    return arr3;
 }
 
 int Search(struct Array *arr,int key) 
