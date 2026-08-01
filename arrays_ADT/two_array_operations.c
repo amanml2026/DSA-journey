@@ -8,9 +8,9 @@ struct Array{
         int length;
 };
 struct Array *Merge(struct Array *arr1,struct Array *arr2); // Merging two sorted arrays
-void display(struct Array arr);
-struct Array *Union_unsorted(struct Array *arr1,struct Array *arr2);
-int Search(struct Array *arr,int key);
+void display(struct Array arr); // displaying array
+struct Array *Union_unsorted(struct Array *arr1,struct Array *arr2); //union of two unsorted arrays.
+int Search(struct Array *arr,int key); //search -- gives 0 for successful search and -1 for unsuccessful one.
 
 int main()
 {
@@ -77,7 +77,7 @@ struct Array *Merge(struct Array *arr1,struct Array *arr2) //returning pointer t
     return arr3; // returning arr3 which is a pointer to merged array
 }
 
-// union of two unsorted sets(arrays) 
+// union of two unsorted sets(arrays) : time complexity ~ O(n^2) for n,n length arrays
 struct Array *Union_unsorted(struct Array *arr1,struct Array *arr2)
 {
     struct Array *arr3 = (struct Array *)malloc(sizeof(struct Array));
@@ -85,21 +85,26 @@ struct Array *Union_unsorted(struct Array *arr1,struct Array *arr2)
     arr3->size = 100;
     for(i=0;i<arr1->length;i++)
     {
-        arr3->A[i] = arr1->A[i];
+        arr3->A[i] = arr1->A[i]; // copying elements from array1
     }
     arr3->length = arr1->length;
 
-    k = arr3->length;
-    for(j=0;j<arr2->length;j++)
+    k = arr3->length; //initlising a pointer after the last copied element in arr3
+    for(j=0;j<arr2->length;j++) // searching
     {
-        if(Search(arr1,arr2->A[j])== -1)
+        if(Search(arr1,arr2->A[j])== -1) // search unsuccessful
         {
-            arr3->A[k] = arr2->A[j];
+            arr3->A[k] = arr2->A[j]; // copy the non-duplicate element
             k++;
-            arr3->length++;
+            arr3->length++; //increasing the length
         }
     }
     return arr3;
+}
+// union for two sorted arrays: time complexity ~ O(n) for n,n length array
+struct Array *Union_sorted(struct Array *arr1,struct Array *arr2)
+{
+    
 }
 
 int Search(struct Array *arr,int key) 
