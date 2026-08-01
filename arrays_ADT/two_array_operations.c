@@ -14,8 +14,8 @@ int Search(struct Array *arr,int key); //search -- gives 0 for successful search
 struct Array *Union_sorted(struct Array *arr1,struct Array *arr2); // gives union of sorted arrays
 struct  Array *Intersection_unsorted(struct Array *arr1,struct Array *arr2); // gives intersection of two unsorted arrays
 struct Array *Intersection_sorted(struct Array *arr1,struct Array *arr2); // gives intersection of two sorted arrays
-struct Array *Difference_unsorted(struct Array *arr1,struct Array *arr2);
-struct Array *Difference_sorted(struct Array *arr1,struct Array *arr2);
+struct Array *Difference_unsorted(struct Array *arr1,struct Array *arr2); // arr1-arr2 where both are unsorted
+struct Array *Difference_sorted(struct Array *arr1,struct Array *arr2); // arr1-arr2 where both are sorted
 
 int main()
 {
@@ -38,10 +38,10 @@ int main()
     arr7 = Intersection_sorted(&arr1,&arr2); // sorted arrays intersection
     display(*arr7);
     struct Array *arr8;
-    arr8 = Difference_unsorted(&arr1,&arr2); // sorted arrays intersection
+    arr8 = Difference_unsorted(&arr1,&arr2); // unsorted arrays difference i.e arr1-arr2
     display(*arr8);
     struct Array *arr9;
-    arr9 = Difference_sorted(&arr1,&arr2); // sorted arrays intersection
+    arr9 = Difference_sorted(&arr1,&arr2); // sorted arrays difference i.e arr1-arr2
     display(*arr9);
     return 0;
 
