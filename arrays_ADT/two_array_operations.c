@@ -11,6 +11,7 @@ struct Array *Merge(struct Array *arr1,struct Array *arr2); // Merging two sorte
 void display(struct Array arr); // displaying array
 struct Array *Union_unsorted(struct Array *arr1,struct Array *arr2); //union of two unsorted arrays.
 int Search(struct Array *arr,int key); //search -- gives 0 for successful search and -1 for unsuccessful one.
+struct Array *Union_sorted(struct Array *arr1,struct Array *arr2);
 
 int main()
 {
@@ -23,9 +24,9 @@ int main()
     struct Array *arr4;
     arr4 = Union_unsorted(&arr1,&arr2);
     display(*arr4);
-    {
-        /* data */
-    };
+    struct Array *arr5;
+    arr5 = Union_sorted(&arr1,&arr2);
+    display(*arr5);
     
 }
 
@@ -104,7 +105,49 @@ struct Array *Union_unsorted(struct Array *arr1,struct Array *arr2)
 // union for two sorted arrays: time complexity ~ O(n) for n,n length array
 struct Array *Union_sorted(struct Array *arr1,struct Array *arr2)
 {
+    int i,j,k;
+    i=j=k=0;
+    struct Array *arr3 = (struct Array *)malloc(sizeof(struct Array)); // pointer for third array in heap
+    arr3->size = 100; // size of the arr3
+    arr3->length = 0;
+    while(i<arr1->length && j<arr2->length) // boundary check
+    {
+        if(arr1->A[i]<arr2->A[j])
+        {
+            arr3->A[k] = arr1->A[i];
+            i++;
+            k++;
+        }
+        else if(arr1->A[i]>arr2->A[j])
+        {
+            arr3->A[k] = arr2->A[j];
+            j++;
+            k++;
+        }
+        else
+        {
+            arr3->A[k] = arr1->A[i];
+            i++;
+            j++;
+            k++;
+        }
+        arr3->length++;
+    }
+    // copying the remaining elemnts from either arr1 or arr2 
+    for(;i<arr1->length;i++)
+    {
+        arr3->A[k] = arr1->A[i];
+        k++;
+        arr3->length++;
+    }
+    for(;j<arr2->length;j++)
+    {
+        arr3->A[k] = arr2->A[j];
+        k++;
+        arr3->length++;
+    }
     
+    return arr3; // returning arr3 which is a pointer to merged array
 }
 
 int Search(struct Array *arr,int key) 
