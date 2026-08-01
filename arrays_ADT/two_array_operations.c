@@ -15,6 +15,7 @@ struct Array *Union_sorted(struct Array *arr1,struct Array *arr2); // gives unio
 struct  Array *Intersection_unsorted(struct Array *arr1,struct Array *arr2); // gives intersection of two unsorted arrays
 struct Array *Intersection_sorted(struct Array *arr1,struct Array *arr2); // gives intersection of two sorted arrays
 struct Array *Difference_unsorted(struct Array *arr1,struct Array *arr2);
+struct Array *Difference_sorted(struct Array *arr1,struct Array *arr2);
 
 int main()
 {
@@ -39,7 +40,9 @@ int main()
     struct Array *arr8;
     arr8 = Difference_unsorted(&arr1,&arr2); // sorted arrays intersection
     display(*arr8);
-
+    struct Array *arr9;
+    arr9 = Difference_sorted(&arr1,&arr2); // sorted arrays intersection
+    display(*arr9);
     return 0;
 
 }
@@ -231,6 +234,45 @@ struct Array *Difference_unsorted(struct Array *arr1,struct Array *arr2)
         }
     }
     return arr3;
+}
+
+// Difference of two sorted arrays i.e arr1-arr2 --> O(n)
+struct Array *Difference_sorted(struct Array *arr1,struct Array *arr2)
+{
+    int i,j,k;
+    i=j=k=0;
+    struct Array *arr3 = (struct Array *)malloc(sizeof(struct Array)); // pointer for third array in heap
+    arr3->size = 100; // size of the arr3
+    arr3->length = 0;
+    while(i<arr1->length && j<arr2->length) // boundary check
+    {
+        if(arr1->A[i]<arr2->A[j])
+        {
+            arr3->A[k] = arr1->A[i];
+            i++;
+            k++;
+            arr3->length++;
+        }
+        else if(arr1->A[i]>arr2->A[j])
+        {
+            j++;
+        }
+        else
+        {
+            i++;
+            j++;
+        }
+        
+    }
+    // copying the remaining elemnts from either arr1 or arr2 
+    for(;i<arr1->length;i++)
+    {
+        arr3->A[k] = arr1->A[i];
+        k++;
+        arr3->length++;
+    }
+
+    return arr3; 
 }
 
 int Search(struct Array *arr,int key) 
