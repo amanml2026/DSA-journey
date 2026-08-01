@@ -11,9 +11,9 @@ struct Array *Merge(struct Array *arr1,struct Array *arr2); // Merging two sorte
 void display(struct Array arr); // displaying array
 struct Array *Union_unsorted(struct Array *arr1,struct Array *arr2); //union of two unsorted arrays.
 int Search(struct Array *arr,int key); //search -- gives 0 for successful search and -1 for unsuccessful one.
-struct Array *Union_sorted(struct Array *arr1,struct Array *arr2);
-struct  Array *Intersection_unsorted(struct Array *arr1,struct Array *arr2);
-struct Array *Intersection_sorted(struct Array *arr1,struct Array *arr2);
+struct Array *Union_sorted(struct Array *arr1,struct Array *arr2); // gives union of sorted arrays
+struct  Array *Intersection_unsorted(struct Array *arr1,struct Array *arr2); // gives intersection of two unsorted arrays
+struct Array *Intersection_sorted(struct Array *arr1,struct Array *arr2); // gives intersection of two sorted arrays
 
 int main()
 {
@@ -24,16 +24,16 @@ int main()
     arr3 = Merge(&arr1,&arr2);
     display(*arr3); // displaying merged array
     struct Array *arr4;
-    arr4 = Union_unsorted(&arr1,&arr2);
+    arr4 = Union_unsorted(&arr1,&arr2); // union of unsorted arrays
     display(*arr4);
     struct Array *arr5;
-    arr5 = Union_sorted(&arr1,&arr2);
+    arr5 = Union_sorted(&arr1,&arr2); // union of sorted arrays
     display(*arr5);
     struct Array *arr6;
-    arr6 = Intersection_unsorted(&arr1,&arr2);
+    arr6 = Intersection_unsorted(&arr1,&arr2); // unsorted arrays intersection
     display(*arr6);
     struct Array *arr7;
-    arr7 = Intersection_sorted(&arr1,&arr2);
+    arr7 = Intersection_sorted(&arr1,&arr2); // sorted arrays intersection
     display(*arr7);
 
     return 0;
