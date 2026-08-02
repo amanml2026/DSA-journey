@@ -4,7 +4,8 @@ Find the missing number in the sequence
 2.Given an array which is not starting from 1 i.e [6,7,8,9,10,12,13,14,15]
 find missing element
 
-3.*/
+3.Given an array not starting from 1 i.e [6,7,8,9,11,12,15,16]
+find multiple(all) missing elements*/
 
 #include <stdio.h>
 #include <stdlib.h>
