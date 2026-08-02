@@ -32,8 +32,7 @@ int solution(struct Array arr)
     {
         sum_actual += arr.A[i];
     }
-    int element = sum - sum_actual;
-    return element;
+    return sum - sum_actual;
 
 }
 
