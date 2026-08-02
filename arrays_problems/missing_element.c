@@ -17,13 +17,16 @@ struct Array{
 };
 int solution1(struct Array arr); // missing element in a sequence of numbers starting from 1
 int solution2(struct Array arr); // missing element in a sequence of numbers starting from any number
+void Solution3(struct Array arr); // multiple missing elements
 
 int main()
 {
     struct Array arr1 = {{1,2,3,4,5,6,8,9},10,8};
     struct Array arr2 = {{6,7,8,9,10,12,13,14,15},10,9};
+    struct Array arr3 = {{6,7,8,9,11,12,15,16},10,8};
     printf("%i\n",solution1(arr1));
     printf("%i\n",solution2(arr2));
+    Solution3(arr3);
     return 0;
 }
 
@@ -52,6 +55,24 @@ int solution2(struct Array arr)
         {
             return diff+i;
             break;
+        }
+    }
+}
+void Solution3(struct Array arr)
+{
+    int diff,i;
+    diff = arr.A[0]-0;
+    printf("\nMissing elements are :\n");
+    for(i=0;i<arr.length;i++)
+    {
+        if(arr.A[i]-i != diff)
+        {
+            
+            while(diff<arr.A[i]-i)
+            {
+                printf("%d\n",i+diff);
+                diff++;
+            }
         }
     }
 }
