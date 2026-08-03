@@ -20,15 +20,18 @@ struct Array{
 int solution1(struct Array arr); // missing element in a sequence of numbers starting from 1
 int solution2(struct Array arr); // missing element in a sequence of numbers starting from any number
 void Solution3(struct Array arr); // multiple missing elements
+void Solution4(struct Array arr);
 
 int main()
 {
     struct Array arr1 = {{1,2,3,4,5,6,8,9},10,8};
     struct Array arr2 = {{6,7,8,9,10,12,13,14,15},10,9};
     struct Array arr3 = {{6,7,8,9,11,12,15,16},10,8};
+    struct Array arr4 = {{3,6,2,4,1,8,9},10,7};
     printf("%i\n",solution1(arr1));
     printf("%i\n",solution2(arr2));
     Solution3(arr3);
+    Solution4(arr4);
     return 0;
 }
 
@@ -91,7 +94,20 @@ void Solution4(struct Array arr)
     }
     // dynamic array / bitset /Hashmap
     int *H = (int *)malloc((max+1)*sizeof(int));
-    H[0] = 0; // all the indexes become zero
-    printf("%d",H[4])
-
+    // all the indexes become zero
+    for(i=0;i<max+1;i++)
+    {
+        H[i] = 0;
+    }
+    // Increasing the value of index(element in arr is present) in H 
+    for(i=0;i<arr.length;i++)
+    {
+        H[arr.A[i]] ++;
+    }
+    // printing the missing elements
+    printf("Missing elements : ");
+    for(i=min;i<=max;i++)
+    {
+        if(H[i] == 0){printf("%d ",i);}
+    }
 }
