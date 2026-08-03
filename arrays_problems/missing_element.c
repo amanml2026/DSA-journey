@@ -93,22 +93,22 @@ void Solution4(struct Array arr)
         if(arr.A[i]<min){min = arr.A[i];}
     }
     // dynamic array / bitset /Hashmap
-    int *H = (int *)malloc((max+1)*sizeof(int));
+    int *H = (int *)malloc((max-min+1)*sizeof(int)); // for less space consumption
     // all the indexes become zero
-    for(i=0;i<max+1;i++)
+    for(i=0;i<max-min+1;i++)
     {
         H[i] = 0;
     }
     // Increasing the value of index(element in arr is present) in H 
     for(i=0;i<arr.length;i++)
     {
-        H[arr.A[i]] ++;
+        H[(arr.A[i])-min] ++;
     }
     // printing the missing elements
     printf("Missing elements : ");
-    for(i=min;i<=max;i++)
+    for(i=0;i<max-min+1;i++)
     {
-        if(H[i] == 0){printf("%d ",i);}
+        if(H[i] == 0){printf("%d ",i+min);}
     }
     free(H);
 }
