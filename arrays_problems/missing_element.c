@@ -110,4 +110,5 @@ void Solution4(struct Array arr)
     {
         if(H[i] == 0){printf("%d ",i);}
     }
+    free(H);
 }
