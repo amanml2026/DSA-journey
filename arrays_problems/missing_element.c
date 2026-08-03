@@ -20,7 +20,7 @@ struct Array{
 int solution1(struct Array arr); // missing element in a sequence of numbers starting from 1
 int solution2(struct Array arr); // missing element in a sequence of numbers starting from any number
 void Solution3(struct Array arr); // multiple missing elements
-void Solution4(struct Array arr);
+void Solution4(struct Array arr); // missing elements in unsorted array
 
 int main()
 {
