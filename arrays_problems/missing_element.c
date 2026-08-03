@@ -5,7 +5,9 @@ Find the missing number in the sequence
 find missing element
 
 3.Given an array not starting from 1 i.e [6,7,8,9,11,12,15,16]
-find multiple(all) missing elements*/
+find multiple(all) missing elements
+
+4. Finding missing elements in an unsorted array of given range i.e [3,6,2,4,1,8,9]*/
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -75,4 +77,21 @@ void Solution3(struct Array arr)
             }
         }
     }
+}
+
+void Solution4(struct Array arr)
+{
+    int i,min,max;
+    // finding max and min
+    min = max = arr.A[0];
+    for(i=0;i<arr.length;i++)
+    {
+        if(arr.A[i]>max){max = arr.A[i];}
+        if(arr.A[i]<min){min = arr.A[i];}
+    }
+    // dynamic array / bitset /Hashmap
+    int *H = (int *)malloc((max+1)*sizeof(int));
+    H[0] = 0; // all the indexes become zero
+    printf("%d",H[4])
+
 }
