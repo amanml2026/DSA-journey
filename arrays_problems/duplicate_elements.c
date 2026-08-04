@@ -42,8 +42,8 @@ void Solution2(struct Array arr)
         {
             j = i+1;
             while(arr.A[i] == arr.A[j]){j++;}
-            printf("%d appears %d times.",arr.A[i],j-i);
-            
+            printf("%d appears %d times.\n",arr.A[i],j-i);
+            i = j-1;
         }
     }
 }
