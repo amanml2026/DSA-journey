@@ -11,7 +11,7 @@ void Solution1(struct Array arr);
 /*find the duplicates along with their count*/
 void Solution2(struct Array arr);
 /*find the duplicates in unsorted array along with their count*/
-void Solution4(struct Array arr);
+void Solution3(struct Array arr);
 
 int main()
 {
@@ -48,4 +48,35 @@ void Solution2(struct Array arr)
             i = j-1;
         }
     }
+}
+void Solution3(struct Array arr)
+{
+    int min,max,i,len;
+    int *H;
+    // finding max and min
+    min = max = arr.A[0];
+    for(i=0;i<arr.length;i++)
+    {
+        if(arr.A[i]>max){max = arr.A[i];}
+        else if(arr.A[i]<min){min = arr.A[i];}
+    }
+    // making a bitset/frequency array
+    len = max-min+1;
+    H = (int *)malloc(len*sizeof(int));
+    for(i=0;i<len;i++)
+    {
+        H[i] = 0;
+    }
+    // fill the bitset
+    for(i=0;i<arr.length;i++)
+    {
+        H[(arr.A[i])-min] ++;
+    }
+    // printing the duplicates i.e H[i](count) >1
+    for(i=0;i<len;i++)
+    {
+        printf("%d appears %d times.",i+min,H[i]);
+    }
+    // freeing the bitset memory
+    free(H);
 }
