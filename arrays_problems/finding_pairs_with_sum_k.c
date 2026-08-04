@@ -40,7 +40,7 @@ void Approach2(struct Array arr,int key) // O(n) using hash table
     int *H;
     // finding max and min
     min = max = arr.A[0];
-    for(i=0;i<arr.length-1;i++)
+    for(i=0;i<arr.length;i++)
     {
         if(arr.A[i]>max){max = arr.A[i];}
         else if(arr.A[i]<min){min = arr.A[i];}
@@ -53,7 +53,7 @@ void Approach2(struct Array arr,int key) // O(n) using hash table
         H[i] = 0;
     }
     
-    for(i=0;i<arr.length-1;i++)
+    for(i=0;i<arr.length;i++)
     {
         int complement = key - arr.A[i];
         if (complement >= min && complement <= max)
@@ -65,4 +65,5 @@ void Approach2(struct Array arr,int key) // O(n) using hash table
         }
         H[arr.A[i]-min] ++;
     }
+    free(H);
 }
