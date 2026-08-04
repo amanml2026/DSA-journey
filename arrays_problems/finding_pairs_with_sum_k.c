@@ -11,7 +11,7 @@ struct Array{
 void Approach1(struct Array arr,int key); // O(n^2) [using nested loop]
 void Approach2(struct Array arr,int key); // O(n) using hash table
 // sorted array
-void Approach3(struct Array arr); // O(n) [sorted array]
+void Approach3(struct Array arr,int key); // O(n) [sorted array]
 
 int main()
 {
@@ -19,6 +19,9 @@ int main()
     Approach1(arr,9);
     printf("\n");
     Approach2(arr,9);
+    printf("\n");
+    struct Array arr_sorted = {{1,3,4,5,8,9,10},20,7};
+    Approach3(arr_sorted,9);
     return 0;
 }
 
@@ -68,4 +71,26 @@ void Approach2(struct Array arr,int key) // O(n) using hash table
         H[arr.A[i]-min] ++;
     }
     free(H);
+}
+void Approach3(struct Array arr,int key)
+{
+    int i,j;
+    i = 0;
+    j = arr.length-1;
+    while(i<j)
+    {
+        if(arr.A[i] + arr.A[j] == key)
+        {
+            printf("(%d,%d)\n",arr.A[i],arr.A[j]);
+            i++;
+            j--;
+        }
+        else if(arr.A[i] + arr.A[j] < key)
+        {
+            i++;
+        }
+        else{
+            j--;
+        }
+    }
 }
