@@ -9,12 +9,14 @@ struct Array{
 /*1. find the duplicate elements in a sorted array and print only one time.*/
 void Solution1(struct Array arr);
 /*find the duplicates along with their count*/
-
+void Solution2(struct Array arr);
 
 int main()
 {
     struct Array arr1 = {{2,3,4,4,5,6,7,7,7,8,9,9,9,9},20,14};
     Solution1(arr1);
+    printf("\n");
+    Solution2(arr1);
 }
 
 void Solution1(struct Array arr)
@@ -28,6 +30,20 @@ void Solution1(struct Array arr)
         {
             printf("%d ",arr.A[i]);
             last_duplicate = arr.A[i];
+        }
+    }
+}
+void Solution2(struct Array arr)
+{
+    int i,j;
+    for(i=0;i<arr.length-1;i++)
+    {
+        if(arr.A[i] == arr.A[i+1])
+        {
+            j = i+1;
+            while(arr.A[i] == arr.A[j]){j++;}
+            printf("%d appears %d times.",arr.A[i],j-i);
+            
         }
     }
 }
