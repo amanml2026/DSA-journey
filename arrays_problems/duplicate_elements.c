@@ -10,6 +10,8 @@ struct Array{
 void Solution1(struct Array arr);
 /*find the duplicates along with their count*/
 void Solution2(struct Array arr);
+/*find the duplicates in unsorted array along with their count*/
+void Solution4(struct Array arr);
 
 int main()
 {
