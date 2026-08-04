@@ -8,10 +8,11 @@ struct Array{
 };
 
 /*Finding the pair (a,b) such that a+b = k where output should be only (a,b) pair not (b,a) and b!=a*/
+void Approach1(struct Array arr,int key); // O(n^2) [using nested loop]
 int main()
 {
     struct Array arr = {{2,1,4,5,3,7,10},20,7};
-
+    Approach1(arr,9);
     return 0;
 }
 
@@ -24,7 +25,7 @@ void Approach1(struct Array arr,int key) // O(n^2)
         {
             if(arr.A[i]+arr.A[j] == key)
             {
-                printf("(%d,%d\n)",arr.A[i],arr.A[j]);
+                printf("(%d,%d)\n",arr.A[i],arr.A[j]);
             }
         }
     }
