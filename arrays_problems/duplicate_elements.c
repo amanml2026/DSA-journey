@@ -19,6 +19,9 @@ int main()
     Solution1(arr1);
     printf("\n");
     Solution2(arr1);
+    struct Array arr2 = {{3,4,1,1,2,7,7,3,5,1},20,10};
+    printf("\n");
+    Solution3(arr2);
 }
 
 void Solution1(struct Array arr)
@@ -75,7 +78,9 @@ void Solution3(struct Array arr)
     // printing the duplicates i.e H[i](count) >1
     for(i=0;i<len;i++)
     {
-        printf("%d appears %d times.",i+min,H[i]);
+        if(H[i]>1){
+            printf("%d appears %d times.\n",i+min,H[i]);
+        }
     }
     // freeing the bitset memory
     free(H);
