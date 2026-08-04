@@ -10,6 +10,8 @@ struct Array{
 /*Finding the pair (a,b) such that a+b = k where output should be only (a,b) pair not (b,a) and b!=a*/
 void Approach1(struct Array arr,int key); // O(n^2) [using nested loop]
 void Approach2(struct Array arr,int key); // O(n) using hash table
+// sorted array
+void Approach3(struct Array arr); // O(n) [sorted array]
 
 int main()
 {
