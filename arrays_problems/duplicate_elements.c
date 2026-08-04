@@ -63,14 +63,14 @@ void Solution3(struct Array arr)
         if(arr.A[i]>max){max = arr.A[i];}
         else if(arr.A[i]<min){min = arr.A[i];}
     }
-    // making a bitset/frequency array
+    // making a hashtable/frequency array
     len = max-min+1;
     H = (int *)malloc(len*sizeof(int));
     for(i=0;i<len;i++)
     {
         H[i] = 0;
     }
-    // fill the bitset
+    // fill the hashtable
     for(i=0;i<arr.length;i++)
     {
         H[(arr.A[i])-min] ++;
@@ -82,6 +82,6 @@ void Solution3(struct Array arr)
             printf("%d appears %d times.\n",i+min,H[i]);
         }
     }
-    // freeing the bitset memory
+    // freeing the hashtable memory
     free(H);
 }
