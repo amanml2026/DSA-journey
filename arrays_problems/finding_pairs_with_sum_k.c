@@ -30,3 +30,22 @@ void Approach1(struct Array arr,int key) // O(n^2)
         }
     }
 }
+void Approach2(struct Array arr,int key) // O(n) using hash table
+{
+    int min,max,i,len;
+    int *H;
+    // finding max and min
+    min = max = arr.A[0];
+    for(i=0;i<arr.length;i++)
+    {
+        if(arr.A[i]>max){max = arr.A[i];}
+        else if(arr.A[i]<min){min = arr.A[i];}
+    }
+    // making a hashtable/frequency array
+    len = max-min+1;
+    H = (int *)malloc(len*sizeof(int));
+    for(i=0;i<len;i++)
+    {
+        H[i] = 0;
+    }   
+}
