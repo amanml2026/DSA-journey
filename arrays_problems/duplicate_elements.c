@@ -8,6 +8,8 @@ struct Array{
 };
 /*1. find the duplicate elements in a sorted array and print only one time.*/
 void Solution1(struct Array arr);
+/*find the duplicates along with their count*/
+
 
 int main()
 {
