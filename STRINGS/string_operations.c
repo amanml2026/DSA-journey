@@ -2,12 +2,13 @@
 
 int length(char *s); // length of the string
 char *Lower(char *s); // Make the string to lower case
+char *Toggle(char *s); // toggles the cases.
 int main()
 {
-    char s[] = "CALIFORNIA";
+    char s[] = "California";
     printf("Length of the string is %d\n",length(s));
-    
-    printf("%s",Lower(s));
+    // printf("%s",Lower(s));
+    printf("%s",Toggle(s));
     return 0;
 }
 
@@ -29,10 +30,30 @@ char *Lower(char *s)
 {
     char *lower = s;
     int i = 0;
-    while(s[i] != '\0')
+    while(lower[i] != '\0')
     {
-        s[i] += 32;
+        lower[i] += 32;
         i++;
     }
     return lower;
+}
+
+// toggle the case of the string i.e lower--> upper and upper--> lower
+char *Toggle(char *s)
+{   
+    char *toggle = s;
+    int i = 0;
+    while (toggle[i] != '\0')
+    {
+        if(toggle[i] >= 65 && toggle[i] <=90)
+        {
+            toggle[i] += 32;
+        }
+        else if (toggle[i] >= 97 && toggle[i]<=122)
+        {
+            toggle[i] -= 32;
+        }
+        i++;
+    }
+    return toggle;
 }
