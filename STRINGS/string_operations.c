@@ -1,9 +1,10 @@
 #include <stdio.h>
 
+int length(char *s); // length of the string
 int main()
 {
     char *s = "California";
-
+    printf("Length of the string is %d",length(s));
     return 0;
 }
 
