@@ -80,3 +80,17 @@ void Count_vowels_cons(char s[])
     }
     printf("The no of vowels : %d and consonants is %d.",vowels,consonants);
 }
+
+int count_words(char s[])
+{
+    int i,words;
+    words = 1; // assuming that the string has one word atleast
+    for(i=0;s[i]!='\0';i++)
+    {
+        if(s[i] == ' ' && s[i-1] != ' ') // checking for white spaces also (like HEY   HELLO)
+        {
+            words++;
+        }
+    }
+    return words;
+}
