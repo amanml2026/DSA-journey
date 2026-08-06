@@ -57,3 +57,22 @@ char *Toggle(char *s)
     }
     return toggle;
 }
+// to count vowels and consonants
+void Count_vowels_cons(char *s)
+{
+    int i,vowels,consonants;
+    for(i=0;i != '\0';i++)
+    {
+        // vowels
+        if(s[i] == 'a' || s[i] == 'A' ||s[i] == 'e' || s[i] == 'E' ||s[i] == 'i' || s[i] == 'I' ||
+        s[i] == 'o' || s[i] == 'O' ||s[i] == 'u' || s[i] == 'U')
+        {
+            vowels++;
+        }
+        // consonants
+        else if((s[i] >= 'a' && s[i] <= 'z')||(s[i] >= 'A' && s[i] <= 'Z'))
+        {
+            consonants++;
+        }
+    }
+}
