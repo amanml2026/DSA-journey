@@ -30,14 +30,14 @@ int length(char *s)
     return i; // i = length
 }
 
-// change the upper case to lower case given a string of upper chars only
+// change the upper case to lower case given a string
 char *Lower(char *s)
 {
     char *lower = s;
     int i = 0;
     while(lower[i] != '\0')
     {
-        if(lower[i] >= 'A' && lower[i] <= 'Z'){
+        if(lower[i] >= 'A' && lower[i] <= 'Z'){ // checking for Upper case
             lower[i] += 32;}
         i++;
         
@@ -52,11 +52,11 @@ char *Toggle(char *s)
     int i = 0;
     while (toggle[i] != '\0')
     {
-        if(toggle[i] >= 65 && toggle[i] <=90)
+        if(toggle[i] >= 65 && toggle[i] <=90) // upper case to lower 
         {
             toggle[i] += 32;
         }
-        else if (toggle[i] >= 97 && toggle[i]<=122)
+        else if (toggle[i] >= 97 && toggle[i]<=122) // lower case to upper
         {
             toggle[i] -= 32;
         }
