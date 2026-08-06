@@ -3,12 +3,14 @@
 int length(char *s); // length of the string
 char *Lower(char *s); // Make the string to lower case
 char *Toggle(char *s); // toggles the cases.
+void Count_vowels_cons(char *s); // counting vowels and consonants
 int main()
 {
     char s[] = "California";
     printf("Length of the string is %d\n",length(s));
     // printf("%s",Lower(s));
     printf("%s",Toggle(s));
+    Count_vowels_cons(s);
     return 0;
 }
 
@@ -75,4 +77,5 @@ void Count_vowels_cons(char *s)
             consonants++;
         }
     }
+    printf("The no of vowels : %d and consonants is %d.",vowels,consonants);
 }
