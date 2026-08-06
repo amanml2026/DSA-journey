@@ -37,8 +37,10 @@ char *Lower(char *s)
     int i = 0;
     while(lower[i] != '\0')
     {
-        lower[i] += 32;
+        if(lower[i] >= 'A' && lower[i] <= 'Z'){
+            lower[i] += 32;}
         i++;
+        
     }
     return lower;
 }
