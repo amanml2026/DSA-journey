@@ -99,3 +99,16 @@ int count_words(char s[])
     }
     return words;
 }
+char *Upper(char *s)
+{
+    char *upper = s;
+    int i = 0;
+    while(upper[i] != '\0')
+    {
+        if(upper[i] >= 'a' && upper[i] <= 'z'){ 
+            upper[i] -= 32;}
+        i++;
+        
+    }
+    return upper;
+}
