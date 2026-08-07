@@ -5,7 +5,7 @@ char *Lower(char *s); // Make the string to lower case
 char *Toggle(char *s); // toggles the cases.
 void Count_vowels_cons(char *s); // counting vowels and consonants
 int count_words(char s[]); // count number of words in string
-char *Upper(char *s);
+char *Upper(char *s); // make the string upper case
 int main()
 {
     char s[] = "California";
@@ -101,16 +101,17 @@ int count_words(char s[])
     }
     return words;
 }
+// turning string to upper case
 char *Upper(char *s)
 {
     char *upper = s;
     int i = 0;
     while(upper[i] != '\0')
     {
-        if(upper[i] >= 'a' && upper[i] <= 'z'){ 
+        if(upper[i] >= 'a' && upper[i] <= 'z'){  // checking for lower case
             upper[i] -= 32;}
         i++;
         
     }
-    return upper;
+    return upper; // string with uppercase characters
 }
