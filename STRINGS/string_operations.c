@@ -5,6 +5,7 @@ char *Lower(char *s); // Make the string to lower case
 char *Toggle(char *s); // toggles the cases.
 void Count_vowels_cons(char *s); // counting vowels and consonants
 int count_words(char s[]); // count number of words in string
+char *Upper(char *s);
 int main()
 {
     char s[] = "California";
@@ -14,6 +15,7 @@ int main()
     Count_vowels_cons(s);
     char sentence[] = "Turning curiosity  into   code.";
     printf("\nThe number of words is %d\n",count_words(sentence));
+    printf("%s",Upper(sentence));
     return 0;
 }
 
