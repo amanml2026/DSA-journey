@@ -4,7 +4,7 @@ the previous element. The elements do not have to be consecutive in the original
 You must write an algorithm that runs in O(n) time.'''
 
 
-def longestConsecutive( nums: List[int]) -> int:
+def longestConsecutive(nums)
     if len(nums) == 0:
         return 0
     low = min(nums)
