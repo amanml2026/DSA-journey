@@ -3,8 +3,8 @@ A consecutive sequence is a sequence of elements in which each element is exactl
 the previous element. The elements do not have to be consecutive in the original array.
 You must write an algorithm that runs in O(n) time.'''
 
-
-def longestConsecutive(nums)
+nums = [13,12,5,4,9,14,18,15,16,17,20,33,1]
+def longestConsecutive(nums):
     if len(nums) == 0:
         return 0
     low = min(nums)
@@ -23,3 +23,5 @@ def longestConsecutive(nums)
             consq = j-i
         i = j+1
     return consq
+
+print(longestConsecutive(nums))
