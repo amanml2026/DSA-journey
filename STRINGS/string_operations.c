@@ -40,7 +40,7 @@ char *Lower(char *s)
     while(lower[i] != '\0')
     {
         if(lower[i] >= 'A' && lower[i] <= 'Z'){ // checking for Upper case
-            lower[i] += 32;}
+            lower[i] += 32;} // converting upper to lower case
         i++;
         
     }
@@ -109,7 +109,7 @@ char *Upper(char *s)
     while(upper[i] != '\0')
     {
         if(upper[i] >= 'a' && upper[i] <= 'z'){  // checking for lower case
-            upper[i] -= 32;}
+            upper[i] -= 32;} // converting lower case to upper case
         i++;
         
     }
