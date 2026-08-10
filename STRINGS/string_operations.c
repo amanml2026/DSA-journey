@@ -115,3 +115,19 @@ char *Upper(char *s)
     }
     return upper; // string with uppercase characters
 }
+
+// validating a string -> accepting only alphanumeric values
+int Validate(char *user)
+{
+    int i;
+    for(i=0;user[i]!='\0';i++)
+    {
+        if(!(user[i]>='A' && user[i]<='Z')&&
+            !(user[i]>='a' && user[i]<='z') &&
+            !(user[i]>='0' && user[i]<='9'))
+            {
+                return 0;
+            }
+    }
+    return 1;
+}
