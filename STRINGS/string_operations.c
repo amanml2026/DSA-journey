@@ -6,6 +6,7 @@ char *Toggle(char *s); // toggles the cases.
 void Count_vowels_cons(char *s); // counting vowels and consonants
 int count_words(char s[]); // count number of words in string
 char *Upper(char *s); // make the string upper case
+int Validate(char *user);
 int main()
 {
     char s[] = "California";
@@ -16,6 +17,13 @@ int main()
     char sentence[] = "Turning curiosity  into   code.";
     printf("\nThe number of words is %d\n",count_words(sentence));
     printf("%s",Upper(sentence));
+
+    char username[] = "AMANkhanal1234";
+    if(Validate(username))
+    {
+        printf("Username accepted.");
+    }
+    else{printf("Invalid username")}
     return 0;
 }
 
