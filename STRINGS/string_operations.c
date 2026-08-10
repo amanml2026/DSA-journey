@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 int length(char *s); // length of the string
 char *Lower(char *s); // Make the string to lower case
@@ -138,4 +139,25 @@ int Validate(char *user)
             }
     }
     return 1; // valid string
+}
+// reversing a string using auxillary string
+void Reverse_aux(char *s)
+{
+    char *temp;
+    int i,j,len;
+    len = 0;
+    for(i=0;s[i]!='\0';i++)
+    {
+        len++;
+    }
+    temp = (char *)malloc(len*sizeof(char));
+    for(i=len-1,j=0;i>=0;i--,j++)
+    {
+        temp[j] = s[i];
+    }
+    for(i=0;i<len;i++)
+    {
+        s[i] = temp[i];
+    }
+    free(temp);
 }
