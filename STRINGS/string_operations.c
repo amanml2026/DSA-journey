@@ -6,7 +6,7 @@ char *Toggle(char *s); // toggles the cases.
 void Count_vowels_cons(char *s); // counting vowels and consonants
 int count_words(char s[]); // count number of words in string
 char *Upper(char *s); // make the string upper case
-int Validate(char *user);
+int Validate(char *user); // validating that string is alphanumeric
 int main()
 {
     char s[] = "California";
@@ -21,9 +21,9 @@ int main()
     char username[] = "AMAN_khanal1234";
     if(Validate(username))
     {
-        printf("Username accepted.");
+        printf("Username accepted."); // valid string
     }
-    else{printf("Invalid username.");}
+    else{printf("Invalid username.");} // invalid string
     return 0;
 }
 
@@ -130,12 +130,12 @@ int Validate(char *user)
     int i;
     for(i=0;user[i]!='\0';i++)
     {
-        if(!(user[i]>='A' && user[i]<='Z')&&
-            !(user[i]>='a' && user[i]<='z') &&
-            !(user[i]>='0' && user[i]<='9'))
+        if(!(user[i]>='A' && user[i]<='Z')&& // checking for uppercase alphabets
+            !(user[i]>='a' && user[i]<='z') && // checking for lowercase alphabets
+            !(user[i]>='0' && user[i]<='9')) // checking for numeric value
             {
-                return 0;
+                return 0; // invalid string as char is not alphanumeric
             }
     }
-    return 1;
+    return 1; // valid string
 }
