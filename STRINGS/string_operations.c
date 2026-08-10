@@ -16,14 +16,14 @@ int main()
     Count_vowels_cons(s);
     char sentence[] = "Turning curiosity  into   code.";
     printf("\nThe number of words is %d\n",count_words(sentence));
-    printf("%s",Upper(sentence));
+    printf("%s\n",Upper(sentence));
 
-    char username[] = "AMANkhanal1234";
+    char username[] = "AMAN_khanal1234";
     if(Validate(username))
     {
         printf("Username accepted.");
     }
-    else{printf("Invalid username")}
+    else{printf("Invalid username.");}
     return 0;
 }
 
