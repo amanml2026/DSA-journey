@@ -8,6 +8,7 @@ void Count_vowels_cons(char *s); // counting vowels and consonants
 int count_words(char s[]); // count number of words in string
 char *Upper(char *s); // make the string upper case
 int Validate(char *user); // validating that string is alphanumeric
+void Reverse_aux(char *s) ;
 int main()
 {
     char s[] = "California";
@@ -19,12 +20,16 @@ int main()
     printf("\nThe number of words is %d\n",count_words(sentence));
     printf("%s\n",Upper(sentence));
 
+
     char username[] = "AMAN_khanal1234";
     if(Validate(username))
     {
-        printf("Username accepted."); // valid string
+        printf("Username accepted.\n"); // valid string
     }
-    else{printf("Invalid username.");} // invalid string
+    else{printf("Invalid username.\n");} // invalid string
+
+    Reverse_aux(s);
+    printf("%s",s);
     return 0;
 }
 
