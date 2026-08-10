@@ -8,7 +8,7 @@ void Count_vowels_cons(char *s); // counting vowels and consonants
 int count_words(char s[]); // count number of words in string
 char *Upper(char *s); // make the string upper case
 int Validate(char *user); // validating that string is alphanumeric
-void Reverse_aux(char *s) ;
+void Reverse_aux(char *s) ; // reversing string using auxillary array
 int main()
 {
     char s[] = "California";
@@ -28,7 +28,7 @@ int main()
     }
     else{printf("Invalid username.\n");} // invalid string
 
-    Reverse_aux(s);
+    Reverse_aux(s); // reversing
     printf("%s",s);
     return 0;
 }
@@ -148,21 +148,21 @@ int Validate(char *user)
 // reversing a string using auxillary string
 void Reverse_aux(char *s)
 {
-    char *temp;
+    char *temp; // auxillary array
     int i,j,len;
     len = 0;
-    for(i=0;s[i]!='\0';i++)
+    for(i=0;s[i]!='\0';i++) // finding length of string
     {
         len++;
     }
-    temp = (char *)malloc(len*sizeof(char));
+    temp = (char *)malloc(len*sizeof(char)); // allocating memory
     for(i=len-1,j=0;i>=0;i--,j++)
     {
-        temp[j] = s[i];
+        temp[j] = s[i]; // reversing
     }
     for(i=0;i<len;i++)
     {
-        s[i] = temp[i];
+        s[i] = temp[i]; // copying into original string
     }
-    free(temp);
+    free(temp); // freeing allocated memory
 }
