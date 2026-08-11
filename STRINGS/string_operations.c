@@ -9,6 +9,7 @@ int count_words(char s[]); // count number of words in string
 char *Upper(char *s); // make the string upper case
 int Validate(char *user); // validating that string is alphanumeric
 void Reverse_aux(char *s) ; // reversing string using auxillary array
+void Reverse_TP(char *s);
 int main()
 {
     char s[] = "California";
@@ -29,6 +30,9 @@ int main()
     else{printf("Invalid username.\n");} // invalid string
 
     Reverse_aux(s); // reversing
+    printf("%s",s);
+    printf("\n");
+    Reverse_TP(s); // reversing
     printf("%s",s);
     return 0;
 }
@@ -169,4 +173,20 @@ void Reverse_aux(char *s)
     free(temp); // freeing allocated memory
 }
 
-// 
+// reversing the string using two pointers
+void Reverse_TP(char *s)
+{
+    int i,j;
+    char temp;
+    for(j=0;s[j]!='\0';j++) // j is at the end of the string
+    {
+    }
+    
+    j = j-1;
+    for(i=0;i<j;i++,j--) 
+    {
+        temp = s[i];
+        s[i] = s[j];
+        s[j] = temp;
+    }
+}
