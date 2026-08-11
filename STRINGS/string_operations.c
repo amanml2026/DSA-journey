@@ -155,12 +155,14 @@ void Reverse_aux(char *s)
     {
         len++;
     }
-    temp = (char *)malloc(len*sizeof(char)); // allocating memory
+    temp = (char *)malloc((len+1)*sizeof(char)); // allocating memory (+1 for the end of string character)
     for(i=len-1,j=0;i>=0;i--,j++)
     {
         temp[j] = s[i]; // reversing
     }
-    for(i=0;i<len;i++)
+    temp[len] = '\0'; // end of string character
+
+    for(i=0;i<len+1;i++)
     {
         s[i] = temp[i]; // copying into original string
     }
