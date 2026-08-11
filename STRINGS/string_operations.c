@@ -9,7 +9,7 @@ int count_words(char s[]); // count number of words in string
 char *Upper(char *s); // make the string upper case
 int Validate(char *user); // validating that string is alphanumeric
 void Reverse_aux(char *s) ; // reversing string using auxillary array
-void Reverse_TP(char *s);
+void Reverse_TP(char *s); // reversing string using two pointers
 int main()
 {
     char s[] = "California";
@@ -178,12 +178,12 @@ void Reverse_TP(char *s)
 {
     int i,j;
     char temp;
-    for(j=0;s[j]!='\0';j++) // j is at the end of the string
+    for(j=0;s[j]!='\0';j++) // j is referring at the end of the string
     {
     }
-    
+    // decreasing j to not refer the end of string character
     j = j-1;
-    for(i=0;i<j;i++,j--) 
+    for(i=0;i<j;i++,j--) // swapping
     {
         temp = s[i];
         s[i] = s[j];
