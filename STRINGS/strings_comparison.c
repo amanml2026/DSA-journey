@@ -2,7 +2,7 @@
 #include <stdlib.h>
 
 void Compare(char *s,char *t); // comapring string s with string t
-int IsPalindrome(char *s);
+int IsPalindrome(char *s); // Checking if given string is palindrome or not 
 
 int main()
 {
@@ -29,10 +29,10 @@ void Compare(char *s,char *t)
 int IsPalindrome(char *s) // two pointers approach
 {
     int i,j;
-    for(j=0;s[j]!='\0';j++){}
-    j = j-1;
+    for(j=0;s[j]!='\0';j++){} // j comes to the end of the string
+    j = j-1; // Decreasing j so that it doesn't refer to the end of string character
 
-    for(i=0;i<j;i++,j--)
+    for(i=0;i<j;i++,j--) // comparing
     {
         if(s[i]!=s[j]){return 0;}
     }
