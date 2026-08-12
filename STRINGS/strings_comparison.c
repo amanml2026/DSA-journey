@@ -11,7 +11,7 @@ int main()
     Compare(s,t); // comparing strings
     Compare(s,p);
 }
-
+// comparing two strings
 void Compare(char *s,char *t)
 {
     int i,j;
@@ -22,4 +22,17 @@ void Compare(char *s,char *t)
     if(s[i]==t[j]){printf("Equal\n");} // loop ran till the end of string character
     else if(s[i]<t[j]){printf("Smaller\n");}
     else{printf("Greater\n");}
+}
+// Checking if the given string is palindrome or not 
+int IsPalindrome(char *s) // two pointers approach
+{
+    int i,j;
+    for(j=0;s[j]!='\0';j++){}
+    j = j-1;
+
+    for(i=0;i<j;i++,j--)
+    {
+        if(s[i]!=s[j]){return 0;}
+    }
+    return 1;
 }
