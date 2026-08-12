@@ -2,6 +2,7 @@
 #include <stdlib.h>
 
 void Compare(char *s,char *t); // comapring string s with string t
+int IsPalindrome(char *s);
 
 int main()
 {
@@ -10,6 +11,7 @@ int main()
     char p[] = "madam";
     Compare(s,t); // comparing strings
     Compare(s,p);
+    printf("%d\n",IsPalindrome(p));
 }
 // comparing two strings
 void Compare(char *s,char *t)
