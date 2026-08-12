@@ -1,10 +1,13 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+void Compare(char *s,char *t);
+
 int main()
 {
     char s[] = "madam";
-    char t[] = "madam";
+    char t[] = "madame";
+    Compare(s,t);
 }
 
 void Compare(char *s,char *t)
