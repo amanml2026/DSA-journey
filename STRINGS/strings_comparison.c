@@ -3,7 +3,7 @@
 
 void Compare(char *s,char *t); // comapring string s with string t
 int IsPalindrome(char *s); // Checking if given string is palindrome or not
-void Duplicate_NL(char *s);  
+void Duplicate_NL(char *s); // Finding duplicates using nested loop in a string
 
 int main()
 {
@@ -13,7 +13,7 @@ int main()
     Compare(s,t); // comparing strings
     Compare(s,p);
     printf("%d\n",IsPalindrome(p));
-    Duplicate_NL(s);
+    Duplicate_NL(s); // duplicates
 }
 // comparing two strings
 void Compare(char *s,char *t)
