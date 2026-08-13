@@ -6,18 +6,22 @@ int IsPalindrome(char *s); // Checking if given string is palindrome or not
 void Duplicate_NL(char *s); // Finding duplicates using nested loop in a string
 void Duplicate_HT(char *s); // finding duplicates using hash table
 void Duplicate_bits(char *s);
+int IsAnagram(char *s,char *t);
 
 int main()
 {
     char s[] = "abstractions";
     char t[] = "madame";
     char p[] = "madam";
+    char q[] = "seats";
+    char r[] = "asset";
     Compare(s,t); // comparing strings
     Compare(s,p);
     printf("%d\n",IsPalindrome(p));
     Duplicate_NL(s); // duplicates
     Duplicate_HT(s);
     Duplicate_bits(s);
+    printf("%d\n",IsAnagram(q,r));
 }
 // comparing two strings
 void Compare(char *s,char *t)
