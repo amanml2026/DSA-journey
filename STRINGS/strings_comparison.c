@@ -5,8 +5,8 @@ void Compare(char *s,char *t); // comapring string s with string t
 int IsPalindrome(char *s); // Checking if given string is palindrome or not
 void Duplicate_NL(char *s); // Finding duplicates using nested loop in a string
 void Duplicate_HT(char *s); // finding duplicates using hash table
-void Duplicate_bits(char *s);
-int IsAnagram(char *s,char *t);
+void Duplicate_bits(char *s); // finding duplicates using bits
+int IsAnagram(char *s,char *t); // finding whether the strings are anagram or not
 
 int main()
 {
@@ -113,7 +113,7 @@ void Duplicate_bits(char *s)
 int IsAnagram(char *s,char *t)
 {
     int i;
-    int *H;
+    int *H; // frequency table
     H = (int *)malloc(26*sizeof(int));
     for(i=0;i<26;i++)
     {
@@ -121,7 +121,7 @@ int IsAnagram(char *s,char *t)
     }
     for(i=0;s[i]!='\0';i++)
     {
-        H[(s[i])-'a'] ++;
+        H[(s[i])-'a'] ++; 
     }
     for(i=0;t[i]!='\0';i++)
     {
@@ -131,8 +131,10 @@ int IsAnagram(char *s,char *t)
     {
         if(H[i]!=0)
         {
-            return 0;
+            free(H);
+            return 0; // not an anagram
         }
     }
-    return 1;
+    free(H);
+    return 1; // is anagram
 }
