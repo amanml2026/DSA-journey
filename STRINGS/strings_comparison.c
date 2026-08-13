@@ -2,7 +2,8 @@
 #include <stdlib.h>
 
 void Compare(char *s,char *t); // comapring string s with string t
-int IsPalindrome(char *s); // Checking if given string is palindrome or not 
+int IsPalindrome(char *s); // Checking if given string is palindrome or not
+void Duplicate_NL(char *s);  
 
 int main()
 {
@@ -12,6 +13,7 @@ int main()
     Compare(s,t); // comparing strings
     Compare(s,p);
     printf("%d\n",IsPalindrome(p));
+    Duplicate_NL(s);
 }
 // comparing two strings
 void Compare(char *s,char *t)
@@ -43,6 +45,7 @@ int IsPalindrome(char *s) // two pointers approach
 void Duplicate_NL(char *s) // NL = Nested Loop
 {
     int i,j;
+    printf("Duplicate elements are: \n");
     for(i=0;s[i]!='\0';i++)
     {
         for(j=i+1;s[j]!='\0';j++)
