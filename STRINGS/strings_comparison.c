@@ -5,6 +5,7 @@ void Compare(char *s,char *t); // comapring string s with string t
 int IsPalindrome(char *s); // Checking if given string is palindrome or not
 void Duplicate_NL(char *s); // Finding duplicates using nested loop in a string
 void Duplicate_HT(char *s); // finding duplicates using hash table
+void Duplicate_bits(char *s);
 
 int main()
 {
@@ -16,6 +17,7 @@ int main()
     printf("%d\n",IsPalindrome(p));
     Duplicate_NL(s); // duplicates
     Duplicate_HT(s);
+    Duplicate_bits(s);
 }
 // comparing two strings
 void Compare(char *s,char *t)
@@ -90,10 +92,11 @@ void Duplicate_bits(char *s)
 {
     int H,X,i;
     H = 0;
-    X = 1;
+    
     for(i=0;s[i]!='\0';i++)
     {
-        X = X << s[i]-97;
+        X = 1;
+        X = X << s[i]-'a';
         if ((H & X) == 0)
         {
             H = X|H;
