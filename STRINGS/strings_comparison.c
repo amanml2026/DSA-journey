@@ -7,7 +7,7 @@ void Duplicate_NL(char *s); // Finding duplicates using nested loop in a string
 
 int main()
 {
-    char s[] = "madam";
+    char s[] = "abstractions";
     char t[] = "madame";
     char p[] = "madam";
     Compare(s,t); // comparing strings
@@ -41,7 +41,7 @@ int IsPalindrome(char *s) // two pointers approach
     return 1;
 }
 
-// finding duplicates using nested loop
+// finding duplicates using nested loop -> O(n^2)
 void Duplicate_NL(char *s) // NL = Nested Loop
 {
     int i,j;
@@ -54,6 +54,31 @@ void Duplicate_NL(char *s) // NL = Nested Loop
             {
                 printf("%c\n",s[i]);
             }
+        }
+    }
+}
+
+// finding duplicates using hash table -> O(n)
+void Duplicate_HT(char *s) // HT-> hash table
+{
+    int i;
+    int *H;
+    H = (int *)malloc(26*sizeof(int));
+    for(i=0;i<26;i++)
+    {
+        H[i] = 0;
+    }
+    for(i=0;s[i]!='\0';i++)
+    {
+        H[(s[i])-'a'] ++;
+    }
+
+    printf("Duplicate elements : \n");
+    for(i=0;i<26;i++)
+    {
+        if(H[i]>1)
+        {
+            printf("%c appears %d times.",i+'a',H[i]);
         }
     }
 }
