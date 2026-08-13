@@ -87,22 +87,21 @@ void Duplicate_HT(char *s) // HT-> hash table
     free(H); // freeing the allocated memory
 }
 
-// finding duplicates using bits
+// finding duplicates using bits -> O(n)
 void Duplicate_bits(char *s)
 {
     int H,X,i;
-    H = 0;
-    
+    H = 0; // 32 bits where the bit becomes on which coressponds to the character in the string
     for(i=0;s[i]!='\0';i++)
     {
-        X = 1;
-        X = X << s[i]-'a';
-        if ((H & X) == 0)
+        X = 1; // 32 bits for doing merging and masking
+        X = X << s[i]-'a'; // left shift
+        if ((H & X) == 0) // if the bit is off i.e masking output = 0
         {
-            H = X|H;
+            H = X|H; // merging-> turning the bit on
         }
         else{
-            printf("%c is duplicate.\n",s[i]);
+            printf("%c is duplicate.\n",s[i]); // duplicate i.e bit is already on
         }
     }
 }
