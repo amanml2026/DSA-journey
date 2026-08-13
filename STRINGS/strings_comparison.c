@@ -105,3 +105,30 @@ void Duplicate_bits(char *s)
         }
     }
 }
+// to find if the given two strings are anagram or not
+int IsAnagram(char *s,char *t)
+{
+    int i;
+    int *H;
+    H = (int *)malloc(26*sizeof(int));
+    for(i=0;i<26;i++)
+    {
+        H[i] = 0;
+    }
+    for(i=0;s[i]!='\0';i++)
+    {
+        H[(s[i])-'a'] ++;
+    }
+    for(i=0;t[i]!='\0';i++)
+    {
+        H[(t[i])-'a'] --;
+    }
+    for(i=0;i<26;i++)
+    {
+        if(H[i]!=0)
+        {
+            return 0;
+        }
+    }
+    return 1;
+}
