@@ -84,3 +84,22 @@ void Duplicate_HT(char *s) // HT-> hash table
     }
     free(H); // freeing the allocated memory
 }
+
+// finding duplicates using bits
+void Duplicate_bits(char *s)
+{
+    int H,X,i;
+    H = 0;
+    X = 1;
+    for(i=0;s[i]!='\0';i++)
+    {
+        X = X << s[i]-97;
+        if ((H & X) == 0)
+        {
+            H = X|H;
+        }
+        else{
+            printf("%c is duplicate.\n",s[i]);
+        }
+    }
+}
