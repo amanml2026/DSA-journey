@@ -38,3 +38,19 @@ int IsPalindrome(char *s) // two pointers approach
     }
     return 1;
 }
+
+// finding duplicates using nested loop
+void Duplicate_NL(char *s) // NL = Nested Loop
+{
+    int i,j;
+    for(i=0;s[i]!='\0';i++)
+    {
+        for(j=i+1;s[j]!='\0';j++)
+        {
+            if(s[i]==s[j])
+            {
+                printf("%c\n",s[i]);
+            }
+        }
+    }
+}
