@@ -4,7 +4,7 @@
 void Compare(char *s,char *t); // comapring string s with string t
 int IsPalindrome(char *s); // Checking if given string is palindrome or not
 void Duplicate_NL(char *s); // Finding duplicates using nested loop in a string
-void Duplicate_HT(char *s);
+void Duplicate_HT(char *s); // finding duplicates using hash table
 
 int main()
 {
@@ -64,17 +64,17 @@ void Duplicate_NL(char *s) // NL = Nested Loop
 void Duplicate_HT(char *s) // HT-> hash table
 {
     int i;
-    int *H;
-    H = (int *)malloc(26*sizeof(int));
+    int *H; // hash table
+    H = (int *)malloc(26*sizeof(int)); // memory allocation for 26 alphabets(lower case)
     for(i=0;i<26;i++)
     {
-        H[i] = 0;
+        H[i] = 0; // frequencies of every alphabet is zero initially
     }
     for(i=0;s[i]!='\0';i++)
     {
-        H[(s[i])-'a'] ++;
+        H[(s[i])-'a'] ++; // frequency increased
     }
-
+    // printing duplicates and their frequency
     for(i=0;i<26;i++)
     {
         if(H[i]>1)
@@ -82,4 +82,5 @@ void Duplicate_HT(char *s) // HT-> hash table
             printf("%c appears %d times.\n",i+'a',H[i]);
         }
     }
+    free(H); // freeing the allocated memory
 }
