@@ -7,11 +7,13 @@ struct Array{
         int size;
         int length;
 };
+
 void display(struct Array arr); // display
 void reverse_aux(struct Array *arr); // reversing using auxillary array
 void reverse_twoP(struct Array *arr); // reversing using two pointers
 void shift(struct Array *arr,char direction); // shifting the array in given direction and setting the missing space=0
 void rotate(struct Array *arr,char direction); // rotating array in given direction
+void InsertionSort(struct Array *arr); // insertion sort
 
 int main()
 {
@@ -26,6 +28,8 @@ int main()
     shift(&arr,'l'); // left shifting
     display(arr);
     shift(&arr,'r'); // right shifting
+    display(arr);
+    InsertionSort(&arr);
     display(arr);
     return 0;
 }
@@ -114,9 +118,9 @@ void InsertionSort(struct Array *arr)
         while(j>=0 && arr->A[j]> key)
         {
             arr->A[j+1] = arr->A[j];
-            j-;
+            j--;
         }
-        arr->A[i+1] = key;
+        arr->A[j+1] = key;
     }
 }
 // display array
