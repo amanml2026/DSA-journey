@@ -5,8 +5,10 @@
 #               as the frequency table.
 #            3. returning the list of dictionary values.
 
-def groupAnagrams(self, strs: list[str]) -> list[list[str]]:
-    res = dict(list)
+from collections import defaultdict
+
+def groupAnagrams(strs: list[str]) -> list[list[str]]:
+    res = defaultdict(list)
     for st in strs:
         count = [0]*26
 
@@ -16,3 +18,6 @@ def groupAnagrams(self, strs: list[str]) -> list[list[str]]:
         res[tuple(count)].append(st)
 
     return list(res.values())
+
+strs = ["act","pots","tops","cat","stop","hat"]
+print(groupAnagrams(strs))
