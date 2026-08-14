@@ -102,6 +102,23 @@ void rotate(struct Array *arr,char direction)
         arr->A[arr->length-1] = temp; // first element becomes last element
     }
 }
+
+// Insertion sort
+void InsertionSort(struct Array *arr)
+{
+    int i,j,key;
+    for(i=1;i<arr->length;i++)
+    {
+        key = arr->A[i];
+        j = i-1;
+        while(j>=0 && arr->A[j]> key)
+        {
+            arr->A[j+1] = arr->A[j];
+            j-;
+        }
+        arr->A[i+1] = key;
+    }
+}
 // display array
 void display(struct Array arr)
 {
