@@ -1,6 +1,7 @@
 #include <stdio.h>
 
 int Summation(int n);
+int Factorial(int n);
 
 int main()
 {
@@ -8,7 +9,8 @@ int main()
     printf("Enter a number : ");
     scanf("%d",&n);
 
-    printf("The summation is %d.",Summation(n));
+    printf("The summation is %d.\n",Summation(n));
+    printf("The factorial of  given number is %d.\n",Factorial(n));
     return 0;
 }
 
