@@ -1,7 +1,7 @@
 #include <stdio.h>
 
-int Summation(int n);
-int Factorial(int n);
+int Summation(int n); // summation of number n from 1 to n
+int Factorial(int n); // factorial of number n
 
 int main()
 {
@@ -17,18 +17,18 @@ int main()
 // summation
 int Summation(int n)
 {
-    if (n==0) 
+    if (n==0) // base case
     {
         return 0;
     }
-    return n + Summation(n-1); 
+    return n + Summation(n-1); // recursive call
 }
 // factorial
 int Factorial(int n)
 {
-    if (n==0)
+    if (n==0) // base case
     {
         return 1;
     }
-    return n*Factorial(n-1);
+    return n*Factorial(n-1); // recursive call
 }
