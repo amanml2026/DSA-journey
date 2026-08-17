@@ -1,11 +1,15 @@
 #include <stdio.h>
 
+int Summation(int n);
+
 int main()
 {
     int n;
-    printf("Enter a number :\n");
-    scanf(&n);
-    
+    printf("Enter a number : ");
+    scanf("%d",&n);
+
+    printf("The summation is %d.",Summation(n));
+    return 0;
 }
 
 // summation
