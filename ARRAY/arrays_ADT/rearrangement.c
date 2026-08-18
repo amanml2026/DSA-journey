@@ -134,3 +134,24 @@ void display(struct Array arr)
         printf("%d ",arr.A[i]);
     }
 }
+
+// Selection Sort
+void SelectionSort(struct Array *arr)
+{
+    int len,i,j,min_idx,temp;
+    len = arr->length;
+    for(i=0;i<len-1;i++)
+    {
+        min_idx = i;
+        for(j=i+1;j<len;j++)
+        {
+            if(arr->A[j]<arr->A[min_idx])
+            {
+                min_idx = j;
+            }
+        }
+        temp = arr->A[min_idx];
+        arr->A[min_idx] = arr->A[i];
+        arr->A[i] = temp;
+    }
+}
