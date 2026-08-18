@@ -140,11 +140,11 @@ void display(struct Array arr)
 // Selection Sort
 void SelectionSort(struct Array *arr)
 {
-    int len,i,j,min_idx,temp;
+    int len,i,j,min_idx,temp; // variables for loops and maintaining the index of minimum element and temp for swapping
     len = arr->length;
-    for(i=0;i<len-1;i++)
+    for(i=0;i<len-1;i++) // iterating till len-1 because the last element will already be the max element.
     {
-        min_idx = i;
+        min_idx = i; // finding index of minimum element
         for(j=i+1;j<len;j++)
         {
             if(arr->A[j]<arr->A[min_idx])
@@ -152,6 +152,7 @@ void SelectionSort(struct Array *arr)
                 min_idx = j;
             }
         }
+        // swapping the A[i] with the minimum element
         temp = arr->A[min_idx];
         arr->A[min_idx] = arr->A[i];
         arr->A[i] = temp;
