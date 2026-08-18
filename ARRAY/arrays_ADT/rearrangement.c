@@ -14,6 +14,7 @@ void reverse_twoP(struct Array *arr); // reversing using two pointers
 void shift(struct Array *arr,char direction); // shifting the array in given direction and setting the missing space=0
 void rotate(struct Array *arr,char direction); // rotating array in given direction
 void InsertionSort(struct Array *arr); // insertion sort
+void SelectionSort(struct Array *arr);
 
 int main()
 {
@@ -29,7 +30,8 @@ int main()
     display(arr);
     shift(&arr,'r'); // right shifting
     display(arr);
-    InsertionSort(&arr);
+    // InsertionSort(&arr);
+    SelectionSort(&arr);
     display(arr);
     return 0;
 }
