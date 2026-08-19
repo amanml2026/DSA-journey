@@ -14,6 +14,8 @@ void display(struct Array arr); // displaying the array
 bool isSorted(struct Array arr);// check for sorted array
 void sortInsert(struct Array *arr,int x); // inserting element in sorted array
 void NegativeShift(struct Array *arr); // shifting negative elements to left
+void Merge(struct Array *arr,int p,int q,int r);
+void MergeSort(struct Array *arr,int p,int r);
 
 int main()
 {
@@ -23,6 +25,9 @@ int main()
     display(arr);
     printf("%d\n",isSorted(arr));
     sortInsert(&arr,7); // inserting 7 in sorted array
+    display(arr);
+    printf("Merge sorted:");
+    MergeSort(&arr,0,5);
     display(arr);
     return 0;
 }
@@ -102,8 +107,8 @@ void Merge(struct Array *arr,int p,int q,int r)
     int n1,n2,i,j,k;
     n1 = q-p+1;
     n2 = r-q;
-    int L[n1+1];
-    int R[n2+1];
+    float L[n1+1];
+    float R[n2+1];
 
     for(i=0;i<n1;i++)
     {
