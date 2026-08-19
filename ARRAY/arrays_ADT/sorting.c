@@ -14,8 +14,8 @@ void display(struct Array arr); // displaying the array
 bool isSorted(struct Array arr);// check for sorted array
 void sortInsert(struct Array *arr,int x); // inserting element in sorted array
 void NegativeShift(struct Array *arr); // shifting negative elements to left
-void Merge(struct Array *arr,int p,int q,int r);
-void MergeSort(struct Array *arr,int p,int r);
+void Merge(struct Array *arr,int p,int q,int r); // merging two sorted arrays
+void MergeSort(struct Array *arr,int p,int r); // merge sort using recursion
 
 int main()
 {
@@ -101,16 +101,17 @@ void NegativeShift(struct Array *arr)
     }
 }
 
-// Merge sort:
+// Merging two sorted arrays:
 void Merge(struct Array *arr,int p,int q,int r)
 {
     int n1,n2,i,j,k;
-    n1 = q-p+1;
-    n2 = r-q;
-    float L[n1+1];
-    float R[n2+1];
+    n1 = q-p+1; // length of left array
+    n2 = r-q; // length of right array
+    float L[n1+1]; // left array
+    float R[n2+1]; // right array
 
-    for(i=0;i<n1;i++)
+    // copying elements into left and right array
+    for(i=0;i<n1;i++) 
     {
         L[i] = arr->A[p+i];
     }
@@ -118,9 +119,11 @@ void Merge(struct Array *arr,int p,int q,int r)
     {
         R[j] = arr->A[q+j+1];
     }
+    // sentinels
     L[n1] = INFINITY;
     R[n2] = INFINITY;
 
+    // copying into A in sorted order
     i=j=0;
     for(k=p;k<=r;k++)
     {
@@ -135,15 +138,15 @@ void Merge(struct Array *arr,int p,int q,int r)
         }
     }
 }
-
+// MERGE SORT: 
 void MergeSort(struct Array *arr,int p,int r)
 {
-    if(p<r)
+    if(p<r) // when p = r i.e one element only -> leaf node recursion tree
     {
         int q;
         q = (p+r)/2;
-        MergeSort(arr,p,q);
-        MergeSort(arr,q+1,r);
-        Merge(arr,p,q,r);
+        MergeSort(arr,p,q); // recursive call
+        MergeSort(arr,q+1,r); 
+        Merge(arr,p,q,r); // merging two sorted arrays
     }
 }
