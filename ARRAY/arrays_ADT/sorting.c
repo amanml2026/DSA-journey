@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
+#include <math.h>
 
 // array struct
 struct Array{
@@ -92,5 +93,52 @@ void NegativeShift(struct Array *arr)
             arr->A[i] = arr->A[j];
             arr->A[j] = temp;
         }
+    }
+}
+
+// Merge sort:
+void Merge(struct Array *arr,int p,int q,int r)
+{
+    int n1,n2,i,j,k;
+    n1 = q-p+1;
+    n2 = r-q;
+    int L[n1+1];
+    int R[n2+1];
+
+    for(i=0;i<n1;i++)
+    {
+        L[i] = arr->A[p+i-1];
+    }
+    for(j=0;j<n2;j++)
+    {
+        R[j] = arr->A[q+j];
+    }
+    L[n1] = INFINITY;
+    R[n2] = INFINITY;
+
+    i=j=0;
+    for(k=p;k<=r;k++)
+    {
+        if(L[i]<=R[j])
+        {
+            arr->A[k] = L[i];
+            i++;
+        }
+        else{
+            arr->A[k] = R[j];
+            j++;
+        }
+    }
+}
+
+void MergeSort(struct Array *arr,int p,int r)
+{
+    if(p<r)
+    {
+        int q;
+        q = (p+r)/2;
+        MergeSort(&arr,p,q);
+        MergeSort(&arr,q+1,r);
+        Merge(&arr,p,q,r);
     }
 }
