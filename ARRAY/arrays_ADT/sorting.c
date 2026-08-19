@@ -107,11 +107,11 @@ void Merge(struct Array *arr,int p,int q,int r)
 
     for(i=0;i<n1;i++)
     {
-        L[i] = arr->A[p+i-1];
+        L[i] = arr->A[p+i];
     }
     for(j=0;j<n2;j++)
     {
-        R[j] = arr->A[q+j];
+        R[j] = arr->A[q+j+1];
     }
     L[n1] = INFINITY;
     R[n2] = INFINITY;
@@ -137,8 +137,8 @@ void MergeSort(struct Array *arr,int p,int r)
     {
         int q;
         q = (p+r)/2;
-        MergeSort(&arr,p,q);
-        MergeSort(&arr,q+1,r);
-        Merge(&arr,p,q,r);
+        MergeSort(arr,p,q);
+        MergeSort(arr,q+1,r);
+        Merge(arr,p,q,r);
     }
 }
