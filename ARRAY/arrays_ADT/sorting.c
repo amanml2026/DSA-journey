@@ -16,6 +16,7 @@ void sortInsert(struct Array *arr,int x); // inserting element in sorted array
 void NegativeShift(struct Array *arr); // shifting negative elements to left
 void Merge(struct Array *arr,int p,int q,int r); // merging two sorted arrays
 void MergeSort(struct Array *arr,int p,int r); // merge sort using recursion
+void BubbleSort(struct Array *arr); 
 
 int main()
 {
@@ -26,8 +27,10 @@ int main()
     printf("%d\n",isSorted(arr));
     sortInsert(&arr,7); // inserting 7 in sorted array
     display(arr);
-    printf("Merge sorted:");
-    MergeSort(&arr,0,5);
+    printf("Bubble sorted:");
+    BubbleSort(&arr);
+    // printf("Merge sorted:");
+    // MergeSort(&arr,0,5);
     display(arr);
     return 0;
 }
