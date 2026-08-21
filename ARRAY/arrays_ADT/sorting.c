@@ -16,7 +16,7 @@ void sortInsert(struct Array *arr,int x); // inserting element in sorted array
 void NegativeShift(struct Array *arr); // shifting negative elements to left
 void Merge(struct Array *arr,int p,int q,int r); // merging two sorted arrays
 void MergeSort(struct Array *arr,int p,int r); // merge sort using recursion
-void BubbleSort(struct Array *arr); 
+void BubbleSort(struct Array *arr); // bubble sort using nested loop
 
 int main()
 {
@@ -153,16 +153,16 @@ void MergeSort(struct Array *arr,int p,int r)
         Merge(arr,p,q,r); // merging two sorted arrays
     }
 }
-// Bubble sort
-void BubbleSort(struct Array *arr)
+// Bubble sort --> O(n^2)
+void BubbleSort(struct Array *arr) 
 {
     int i,j;
     int temp;
     for(i=0;i<arr->length-1;i++)
     {
-        for(j=arr->length-1;j>=i+1;j--)
+        for(j=arr->length-1;j>=i+1;j--) // pass from right to left
         {
-            if(arr->A[j]<arr->A[j-1])
+            if(arr->A[j]<arr->A[j-1]) // swapping the elements
             {
                 temp = arr->A[j];
                 arr->A[j] = arr->A[j-1];
