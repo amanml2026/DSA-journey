@@ -150,3 +150,21 @@ void MergeSort(struct Array *arr,int p,int r)
         Merge(arr,p,q,r); // merging two sorted arrays
     }
 }
+// Bubble sort
+void BubbleSort(struct Array *arr)
+{
+    int i,j;
+    int temp;
+    for(i=0;i<arr->length-1;i++)
+    {
+        for(j=arr->length-1;j>=i+1;j--)
+        {
+            if(arr->A[j]<arr->A[j-1])
+            {
+                temp = arr->A[j];
+                arr->A[j] = arr->A[j-1];
+                arr->A[j-1] = temp;
+            }
+        }
+    }
+}
