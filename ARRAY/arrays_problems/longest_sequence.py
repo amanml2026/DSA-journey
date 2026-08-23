@@ -45,4 +45,4 @@ def longestConsecutive_2( nums: list[int]) -> int:
 
     return maxS
 
-print()
+print(longestConsecutive_2(nums))
