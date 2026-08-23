@@ -26,3 +26,23 @@ def longestConsecutive(nums):
     return consq # longest sequence
 
 print(longestConsecutive(nums))
+
+# Better solution by first sorting the elements --> O(nlogn)
+def longestConsecutive_2( nums: list[int]) -> int:
+    nums = list(set(nums))
+    sorted_nums = sorted(nums)
+    i=0
+    maxS = 0
+    while(i<len(sorted_nums)):
+        j = i
+        seq = 1
+        while(j < len(sorted_nums)-1 and sorted_nums[j+1] == sorted_nums[j]+1):
+            seq += 1
+            j += 1
+        if(maxS<seq):
+            maxS = seq
+        i = j + 1
+
+    return maxS
+
+print()
