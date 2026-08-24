@@ -17,7 +17,7 @@ def threeSum(nums: list[int]) -> list[list[int]]: # O(n^3)
 nums = [-1,0,1,2,-1,-4]
 print(threeSum(nums))
 
-
+# BETTER APPROACH -> O(n^2)
 def threeSum_2(nums : list[int]) -> list[list[int]]:
     ans = []
     nums = sorted(nums)
@@ -27,8 +27,15 @@ def threeSum_2(nums : list[int]) -> list[list[int]]:
         j = i+1
         k = len(nums)-1
         while(j<k):
-            if (nums[i]+nums[j]+nums[k] == 0):
-                ans.append([nums[i],nums[j],nums[k]])
+            if nums[i] + nums[j] + nums[k] == 0:
+                ans.append([nums[i], nums[j], nums[k]])
+
+                while j < k and nums[j] == nums[j + 1]:
+                    j += 1
+
+                while j < k and nums[k] == nums[k - 1]:
+                    k -= 1
+
                 j += 1
                 k -= 1
 
@@ -38,5 +45,4 @@ def threeSum_2(nums : list[int]) -> list[list[int]]:
                 k -=1 
 
     return ans
-
 print(threeSum_2(nums))
