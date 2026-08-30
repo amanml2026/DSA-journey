@@ -7,15 +7,16 @@ therefore you may not use the same element twice.
 '''
 
 def twoSum(numbers: list[int], target: int) -> list[int]:
-    i = 0
-    j = len(numbers) - 1
+    # two pointers appraoch
+    i = 0 #left pointer
+    j = len(numbers) - 1 #right pointer
     while(i<j):
-        total = numbers[i] + numbers[j]
-        if total == target:
+        total = numbers[i] + numbers[j] # total of both the elements
+        if total == target: # total = target --> return indices
             return [i+1,j+1] 
-        elif total < target:
+        elif total < target: #total less than target --> move the left pointer one step to right
             i += 1
-        else:
+        else: # total more than the target --> move the right pointer to left by one step
             j -= 1
 
 nums = [1,2,3,4]
