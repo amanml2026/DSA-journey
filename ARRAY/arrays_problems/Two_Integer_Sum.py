@@ -18,3 +18,6 @@ def twoSum(numbers: list[int], target: int) -> list[int]:
         else:
             j -= 1
 
+nums = [1,2,3,4]
+print(twoSum(nums,3))
+
