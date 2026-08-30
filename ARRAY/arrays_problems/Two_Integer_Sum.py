@@ -10,10 +10,11 @@ def twoSum(numbers: list[int], target: int) -> list[int]:
     i = 0
     j = len(numbers) - 1
     while(i<j):
-        if(numbers[i] + numbers[j])>target:
-            j -= 1
-        elif (numbers[i] + numbers[j])<target:
+        total = numbers[i] + numbers[j]
+        if total == target:
+            return [i+1,j+1] 
+        elif total < target:
             i += 1
         else:
-            return [i+1,j+1]
+            j -= 1
 
