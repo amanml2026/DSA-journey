@@ -20,3 +20,19 @@ def maxArea(heights: list[int]) -> int:
 heights = [1,7,2,5,4,7,3,6]
 # testing the brute force approach
 print(maxArea(heights))
+
+# Optimal solution --> using two pointers -> O(n)
+def maxArea_optimised( heights: list[int]) -> int:
+    MaxArea = 0
+    i = 0
+    j = len(heights) - 1
+    while(i<j):
+        area = (j-i)*min(heights[i],heights[j])
+        if area > MaxArea:
+            MaxArea = area
+        if (heights[i] < heights[j]):
+            i += 1
+        else:
+            j -= 1
+
+    return MaxArea
