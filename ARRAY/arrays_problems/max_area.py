@@ -36,3 +36,5 @@ def maxArea_optimised( heights: list[int]) -> int:
             j -= 1
 
     return MaxArea
+
+print(maxArea_optimised(heights))
