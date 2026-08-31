@@ -16,3 +16,7 @@ def maxArea(heights: list[int]) -> int:
                 MaxArea = area
 
     return MaxArea # MaxArea
+
+heights = [1,7,2,5,4,7,3,6]
+# testing the brute force approach
+print(maxArea(heights))
