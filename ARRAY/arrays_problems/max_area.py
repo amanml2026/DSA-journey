@@ -24,17 +24,20 @@ print(maxArea(heights))
 # Optimal solution --> using two pointers -> O(n)
 def maxArea_optimised( heights: list[int]) -> int:
     MaxArea = 0
+    # starting with maximising the width
     i = 0
     j = len(heights) - 1
     while(i<j):
+        # area of the pair of bars
         area = (j-i)*min(heights[i],heights[j])
         if area > MaxArea:
             MaxArea = area
+        # moving the pointer from the smaller value between heights[i] and heights[j]
         if (heights[i] < heights[j]):
             i += 1
         else:
             j -= 1
 
     return MaxArea
-
+# testing the optimal approach
 print(maxArea_optimised(heights))
