@@ -13,7 +13,7 @@ def isValidSudoku(board: list[list[str]]) -> bool:
     for row in board:
         row = [x for x in row if x != '.']
         if len(set(row)) != len(row):
-            return False
+            return False # duplicate found in row
             break
             
     # Handling the columns
@@ -21,24 +21,25 @@ def isValidSudoku(board: list[list[str]]) -> bool:
         col = [row[i] for row in board]
         col = [x for x in col if x != '.']
         if len(set(col)) != len(col):
-            return False
+            return False # duplicate found in column
             break
 
     # Handling 3x3 boxes
-    for r in range(0,9,3):
+    for r in range(0,9,3): 
         for c in range(0,9,3):
-            box = []
+            box = [] # accessing 3x3 boxes
             for i in range(r,r+3):
                 for j in range(c,c+3):
                     if board[i][j] != '.':
                         box.append(board[i][j])
 
             if len(set(box)) != len(box):
-                return False
+                return False # duplicate found in 3x3 box
                 break
 
-    return True
+    return True # everything is fine :)
 
+# TEST CASES
 board1 = [["1","2",".",".","3",".",".",".","."],
 ["4",".",".","5",".",".",".",".","."],
 [".","9","8",".",".",".",".",".","3"],
@@ -59,6 +60,6 @@ board2 = [["1","2",".",".","3",".",".",".","."],
 [".",".",".","4","1","9",".",".","8"],
 [".",".",".",".","8",".",".","7","9"]]
 
-
+# test output
 print(isValidSudoku(board1))
 print(isValidSudoku(board2))
