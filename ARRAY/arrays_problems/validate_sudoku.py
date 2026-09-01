@@ -7,3 +7,34 @@ Each of the nine 3 x 3 sub-boxes of the grid must contain the digits 1-9 without
 Return true if the Sudoku board is valid, otherwise return false
 
 '''
+
+def isValidSudoku(board: list[list[str]]) -> bool:
+    # Handling rows
+    for row in board:
+        row = [x for x in row if x != '.']
+        if len(set(row)) != len(row):
+            return False
+            break
+            
+    # Handling the columns
+    for i in range(9):
+        col = [row[i] for row in board]
+        col = [x for x in col if x != '.']
+        if len(set(col)) != len(col):
+            return False
+            break
+
+    # Handling 3x3 boxes
+    for r in range(0,9,3):
+        for c in range(0,9,3):
+            box = []
+            for i in range(r,r+3):
+                for j in range(c,c+3):
+                    if board[i][j] != '.':
+                        box.append(board[i][j])
+
+            if len(set(box)) != len(box):
+                return False
+                break
+
+    return True
