@@ -61,5 +61,5 @@ board2 = [["1","2",".",".","3",".",".",".","."],
 [".",".",".",".","8",".",".","7","9"]]
 
 # test output
-print(isValidSudoku(board1))
-print(isValidSudoku(board2))
+print(isValidSudoku(board1)) # returns true
+print(isValidSudoku(board2)) # returns false
