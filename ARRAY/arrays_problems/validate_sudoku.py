@@ -28,10 +28,10 @@ def isValidSudoku(board: list[list[str]]) -> bool:
     for r in range(0,9,3): 
         for c in range(0,9,3):
             box = [] # accessing 3x3 boxes
-            for i in range(r,r+3):
-                for j in range(c,c+3):
+            for i in range(r,r+3): # accessing each row in a box
+                for j in range(c,c+3): # accessing each column in a box
                     if board[i][j] != '.':
-                        box.append(board[i][j])
+                        box.append(board[i][j]) # appending the elements
 
             if len(set(box)) != len(box):
                 return False # duplicate found in 3x3 box
