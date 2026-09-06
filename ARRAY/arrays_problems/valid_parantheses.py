@@ -9,3 +9,17 @@ Every close bracket has a corresponding open bracket of the same type.
 Return true if s is a valid string, and false otherwise.
 
 '''
+
+def isValid( s: str) -> bool:
+    stack = []
+    closeOpen = {')': '(', '}':'{', ']':'['}
+    for char in s:
+        if char in closeOpen:
+            if stack and closeOpen[char] == stack[-1]:
+                stack.pop()
+            else:
+                return False
+        else:
+            stack.append(char)
+
+    return True if not stack else False
