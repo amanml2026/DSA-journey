@@ -23,3 +23,9 @@ def isValid( s: str) -> bool:
             stack.append(char)
 
     return True if not stack else False
+
+string1 = "([{}])"
+print(isValid(string1))
+
+string2 = "[(])"
+print(isValid(string2))
