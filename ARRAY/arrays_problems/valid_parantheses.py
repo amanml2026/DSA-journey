@@ -29,12 +29,14 @@ def isValid2( s: str) -> bool:
     i = 0
     j = len(s) - 1
     while(i<j):
-        if s[i] != closeOpen[s[j]]:
+        if s[i] != closeOpen[s[j]]: # could give error if the ending elements are not the closing brackets
             return False
         i += 1
         j -= 1
 
     return True
+
+# this approach could also fail if the brackets are non-symmetric ex. "{}[]()"
 
 string1 = "([{}])"
 print(isValid(string1)) # return True
