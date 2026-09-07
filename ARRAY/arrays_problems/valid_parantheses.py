@@ -36,10 +36,12 @@ def isValid2( s: str) -> bool:
 
     return True
 
-
-
 string1 = "([{}])"
 print(isValid(string1)) # return True
 
 string2 = "[(])"
 print(isValid(string2)) # return False
+
+#Testing approach 2:
+print(isValid2(string1))
+print(isValid2(string2))
