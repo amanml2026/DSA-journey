@@ -24,6 +24,12 @@ def isValid( s: str) -> bool:
 
     return True if not stack else False # if stack is empty -> every opening bracket got popped -> valid parantheses
 
+def isValid( s: str) -> bool:
+    stack = [] # stack 
+    closeOpen = {')': '(', '}':'{', ']':'['} # dictionary for the opening and closing brackets
+
+    
+
 string1 = "([{}])"
 print(isValid(string1)) # return True
 
