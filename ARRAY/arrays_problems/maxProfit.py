@@ -6,7 +6,7 @@ You may choose a single day to buy one NeetCoin and choose a different day in th
 Return the maximum profit you can achieve. You may choose to not make any transactions, in which case the profit would be 0.
 '''
 
-def maxProfit(self, prices: list[int]) -> int:
+def maxProfit( prices: list[int]) -> int:
     l = 0
     r = 1
     maxP = 0
@@ -19,3 +19,6 @@ def maxProfit(self, prices: list[int]) -> int:
         r += 1
 
     return maxP
+
+prices = [10,1,5,6,7,1]
+print(maxProfit(prices))
