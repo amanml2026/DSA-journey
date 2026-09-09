@@ -15,3 +15,28 @@ int main()
 
 }
 
+// Brute force approach
+info MaxSubarray(int A[])
+{
+    int len,l,r,low,high,sum,MaxSum;
+    len = sizeof(A);
+    MaxSum = -INFINITY;
+
+    for(l=0;l<len;l++)
+    {
+        sum = 0;
+        for(r=l;r<len;r++)
+        {
+            sum += A[r];
+            if(sum > MaxSum)
+            {
+                MaxSum = sum;
+                low = l;
+                high = r;
+            }
+        }
+    }
+    info output = {low,high,MaxSum};
+    return output;
+
+}
