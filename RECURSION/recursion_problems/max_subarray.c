@@ -8,9 +8,12 @@ typedef struct{
     int sum;
 }info;
 
+info MaxSubarray(int A[]);
+
 int main()
 {
-
+    int Test[] = {-2, 3, -1, 5, -6, 4, 2, -1, 3, -8, 7, -2, 4, -1, 2, -5, 4};
+    printf("%d,%d,%d",MaxSubarray(Test).left,MaxSubarray(Test).right,MaxSubarray(Test).sum);
     return 0;
 
 }
