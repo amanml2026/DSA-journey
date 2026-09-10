@@ -1,31 +1,32 @@
 def kadane_algo(A):
-    if len(A) == 0:
+    if len(A) == 0: # length is zero
         return "NULL"
     maxSum = float('-inf')
-    i = 0
+    i = 0 
 
-    while i < len(A):
+    while i < len(A): #boundary
 
-        sum = 0
-        j = i
+        sum = 0 # for new subarray -> initially sum = 0
+        j = i # for traversing through the subarray
 
-        while (j < len(A) ):
-            sum += A[j]
-            if sum > maxSum:
-                low = i
-                high = j
-                maxSum = sum
-            j += 1
-            if sum<0:
-                break
+        while (j < len(A) ): # traversal boundary
+            sum += A[j] # adding the elements in the subarray
+            if sum > maxSum: # updating maxSum
+                low = i # starting index of max subarray
+                high = j # ending index of max subarray
+                maxSum = sum # sum of max subarray
+            j += 1 # increasing j
+            if sum<0: # if sum = negative -> negative contribution to the subarray -> drop the subarray right there
+                break # breaking the inner loop -> ending the subarray
 
         if sum<0:
-            i = j
-        if j == len(A):
+            i = j # to traverse other subarray
+        if j == len(A): # breaking the outer loop once the traversal pointer reaches end of list
             break
 
     return low,high,maxSum
 
+# TESTS 
 Test1 = [-2, 4, -1, 2, 1, -5, 4, 3]
 print(kadane_algo(Test1))
 
@@ -33,5 +34,4 @@ Test2 = [-7,  4, -2,  5, -1,  3, -6,  8, -3,  2,
 4, -10,  6, -1,  2,  3, -2,  5, -8,  4,
 -3,  7, -2,  6, -4, -5,  9, -1,  3, -2,
 4, -12,  5,  2, -1,  4, -3,  2, -1,  6]
-
 print(kadane_algo(Test2))
