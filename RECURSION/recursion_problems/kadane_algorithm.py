@@ -25,3 +25,6 @@ def kadane_algo(A):
             break
 
     return low,high,maxSum
+
+Test1 = [-2, 4, -1, 2, 1, -5, 4, 3]
+print(kadane_algo(Test1))
