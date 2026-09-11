@@ -27,6 +27,23 @@ def kadane_algo(A):
 
     return low,high,maxSum
 
+def MaxSubarray(A, length):
+    low = 0
+    high = 0
+    MaxSum = float('-inf')
+
+    for l in range(length):
+        sum = 0
+        for r in range(l, length):
+            sum += A[r]
+
+            if sum > MaxSum:
+                MaxSum = sum
+                low = l
+                high = r
+
+    return low, high, MaxSum
+
 # TESTS 
 Test1 = [-2, 4, -1, 2, 1, -5, 4, 3]
 print(kadane_algo(Test1))
