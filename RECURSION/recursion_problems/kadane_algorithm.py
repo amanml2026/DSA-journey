@@ -56,7 +56,7 @@ def MaxSubarray(A):
 # -3,  7, -2,  6, -4, -5,  9, -1,  3, -2,
 # 4, -12,  5,  2, -1,  4, -3,  2, -1,  6]
 # print(kadane_algo(Test2))
-size = [10000,30000,75000,100000]
+size = [10000,30000,50000]
 for n in size:
     Test = [random.randint(-100,100) for _ in range(n)]
     start_brute = time.perf_counter()
@@ -67,3 +67,4 @@ for n in size:
     print(f"Time taken by kadane algorithm is {time.perf_counter()-start_kadane}.")
     print()
     print()
+# HUGE DIFFERENCE !!! *_*
