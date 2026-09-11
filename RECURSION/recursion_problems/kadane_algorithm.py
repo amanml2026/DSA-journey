@@ -1,4 +1,6 @@
 import time
+import random
+
 def kadane_algo(A):
     if len(A) == 0: # length is zero
         return "NULL"
