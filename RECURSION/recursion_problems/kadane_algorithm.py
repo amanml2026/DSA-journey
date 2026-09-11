@@ -47,11 +47,14 @@ def MaxSubarray(A, length):
     return low, high, MaxSum
 
 # TESTS 
-Test1 = [-2, 4, -1, 2, 1, -5, 4, 3]
-print(kadane_algo(Test1))
+# Test1 = [-2, 4, -1, 2, 1, -5, 4, 3]
+# print(kadane_algo(Test1))
 
-Test2 = [-7,  4, -2,  5, -1,  3, -6,  8, -3,  2,
-4, -10,  6, -1,  2,  3, -2,  5, -8,  4,
--3,  7, -2,  6, -4, -5,  9, -1,  3, -2,
-4, -12,  5,  2, -1,  4, -3,  2, -1,  6]
-print(kadane_algo(Test2))
+# Test2 = [-7,  4, -2,  5, -1,  3, -6,  8, -3,  2,
+# 4, -10,  6, -1,  2,  3, -2,  5, -8,  4,
+# -3,  7, -2,  6, -4, -5,  9, -1,  3, -2,
+# 4, -12,  5,  2, -1,  4, -3,  2, -1,  6]
+# print(kadane_algo(Test2))
+size = [10000,100000,1000000,10000000]
+for n in size:
+    Test = [random.randint(-100,100) for _ in range(n)]
