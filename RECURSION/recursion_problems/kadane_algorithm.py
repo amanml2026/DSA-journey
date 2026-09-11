@@ -29,7 +29,8 @@ def kadane_algo(A):
 
     return low,high,maxSum
 
-def MaxSubarray(A, length):
+def MaxSubarray(A):
+    length = len(A)
     low = 0
     high = 0
     MaxSum = float('-inf')
@@ -55,6 +56,14 @@ def MaxSubarray(A, length):
 # -3,  7, -2,  6, -4, -5,  9, -1,  3, -2,
 # 4, -12,  5,  2, -1,  4, -3,  2, -1,  6]
 # print(kadane_algo(Test2))
-size = [10000,100000,1000000,10000000]
+size = [10000,30000,75000,100000]
 for n in size:
     Test = [random.randint(-100,100) for _ in range(n)]
+    start_brute = time.perf_counter()
+    print("Sol. =",MaxSubarray(Test))
+    print(f"Time taken by brute force is {time.perf_counter()-start_brute}.")
+    start_kadane = time.perf_counter()
+    print("Sol. =",kadane_algo(Test))
+    print(f"Time taken by kadane algorithm is {time.perf_counter()-start_kadane}.")
+    print()
+    print()
