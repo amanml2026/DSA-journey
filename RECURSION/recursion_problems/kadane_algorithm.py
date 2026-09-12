@@ -30,14 +30,13 @@ def kadane_algo(A):
     return low,high,maxSum
 
 def MaxSubarray(A):
-    length = len(A)
     low = 0
     high = 0
     MaxSum = float('-inf')
 
-    for l in range(length):
+    for l in range(len(A)):
         sum = 0
-        for r in range(l, length):
+        for r in range(l, len(A)):
             sum += A[r]
 
             if sum > MaxSum:
