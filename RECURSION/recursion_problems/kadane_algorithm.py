@@ -29,7 +29,7 @@ def kadane_algo(A):
 
     return low,high,maxSum
 
-def MaxSubarray(A):
+def MaxSubarray(A): # Brute force -> O(n^2)
     low = 0
     high = 0
     MaxSum = float('-inf')
@@ -39,7 +39,7 @@ def MaxSubarray(A):
         for r in range(l, len(A)):
             sum += A[r]
 
-            if sum > MaxSum:
+            if sum > MaxSum: # maximum subarray
                 MaxSum = sum
                 low = l
                 high = r
