@@ -54,56 +54,57 @@ info MaxSubarray(int A[],int len)
 info MidCrossMaxSubarray(int A[],int low,int mid,int high)
 {
     int sum,i,j,max_left,max_right;
-    float left_sum = -INFINITY;
+    float left_sum = -INFINITY; // max. sum of subarray to left of mid(including mid)
     sum = 0;
-    for(i=mid;i>=low;i--)
+    for(i=mid;i>=low;i--) // iterating through each element for creating a subarray ending at mid
     {
-        sum += A[i];
+        sum += A[i]; // subarray sum addition
         if (sum > left_sum){
-            left_sum = sum;
-            max_left = i;
+            left_sum = sum; // max left subarray sum
+            max_left = i; // max subarray left index
         }
     }
-    float right_sum = -INFINITY;
+    float right_sum = -INFINITY; // max. sum of subarray to right of the mid
     sum = 0;
-    for(j=mid+1;j<=high;j++)
+    for(j=mid+1;j<=high;j++) // iterating through each element to create subarray starting from mid+1
     {
         sum += A[j];
         if (sum>right_sum)
         {
-            right_sum = sum;
-            max_right = j;
+            right_sum = sum; // max right subarray sum
+            max_right = j; // max subarray right index
         }
     }
-    info output = {max_left,max_right,left_sum + right_sum};
+    info output = {max_left,max_right,left_sum + right_sum}; // output
     return output;
 }
 
 info MaxSubarrayRecursion(int A[],int low,int high)
 {
+    // base case i.e one element => low==high
     if(low==high){
-        info output = {low,high,A[low]};
+        info output = {low,high,A[low]}; 
         return output;
     }
     else
     {
-        int mid = (low + high)/2;
-        info left,right,cross;
-        left = MaxSubarrayRecursion(A,low,mid);
+        int mid = (low + high)/2; // calculating middle element
+        info left,right,cross; // for returning the values
+        left = MaxSubarrayRecursion(A,low,mid); // left nodes
 
-        right = MaxSubarrayRecursion(A,mid+1,high);
+        right = MaxSubarrayRecursion(A,mid+1,high); // right nodes
 
-        cross = MidCrossMaxSubarray(A,low,mid,high);
+        cross = MidCrossMaxSubarray(A,low,mid,high); // merging them using the crossing mid term solution
 
-        if((left.sum >= right.sum) && (left.sum >= cross.sum))
+        if((left.sum >= right.sum) && (left.sum >= cross.sum)) // left subarray (only) max subarray
         {
             return left;
         }
-        if((right.sum >= left.sum) && (right.sum >= cross.sum))
+        if((right.sum >= left.sum) && (right.sum >= cross.sum)) // right subarray (only) max subarray
         {
             return right;
         }
-        else{
+        else{ // max subarray created by crossing through the middle of the array
             return cross;
         }
     }
