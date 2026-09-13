@@ -56,7 +56,7 @@ info MidCrossMaxSubarray(int A[],int low,int mid,int high)
     int sum,i,j,max_left,max_right;
     float left_sum = -INFINITY;
     sum = 0;
-    for(i=mid;i>=0;i--)
+    for(i=mid;i>=low;i--)
     {
         sum += A[i];
         if (sum > left_sum){
