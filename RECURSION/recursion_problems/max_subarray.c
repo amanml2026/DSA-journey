@@ -46,3 +46,32 @@ info MaxSubarray(int A[],int len)
 
 }
 // Divide and conquer (Recursion)
+
+// Max. subarray crossing the middle element
+info MidCrossMaxSubarray(int A[],int low,int mid,int high)
+{
+    int sum,i,j,max_left,max_right;
+    float left_sum = -INFINITY;
+    sum = 0;
+    for(i=mid;i>=0;i--)
+    {
+        sum += A[i];
+        if (sum > left_sum){
+            left_sum = sum;
+            max_left = i;
+        }
+    }
+    float right_sum = -INFINITY;
+    sum = 0;
+    for(j=mid+1;j<=high;j++)
+    {
+        sum += A[j];
+        if (sum>right_sum)
+        {
+            right_sum = sum;
+            max_right = j;
+        }
+    }
+    info output = {max_left,max_right,left_sum + right_sum};
+    return output;
+}
