@@ -75,3 +75,33 @@ info MidCrossMaxSubarray(int A[],int low,int mid,int high)
     info output = {max_left,max_right,left_sum + right_sum};
     return output;
 }
+
+info MaxSubarrayRecursion(int A[],int low,int high)
+{
+    if(low==high){
+        info output = {low,high,A[low]};
+        return output;
+    }
+    else
+    {
+        int mid = (low + mid)/2;
+        info left,right,cross;
+        left = MaxSubarrayRecursion(A,low,mid);
+
+        right = MaxSubarrayRecursion(A,mid+1,high);
+
+        cross = MidCrossMaxSubarray(A,low,mid,high);
+
+        if((left.sum >= right.sum) && (left.sum >= cross.sum))
+        {
+            return left;
+        }
+        if((right.sum >= left.sum) && (right.sum >= cross.sum))
+        {
+            return right;
+        }
+        else{
+            return cross;
+        }
+    }
+}
