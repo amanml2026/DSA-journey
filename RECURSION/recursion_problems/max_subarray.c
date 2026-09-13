@@ -46,7 +46,7 @@ int main()
         // time taken by the recursive approach
         double rec_time = (double)(rec_end-rec_start)/CLOCKS_PER_SEC;
 
-        printf("Number of elements : %d\nBrute force time = %d\nRecursive approach time = %d\n\n",n,brute_time,rec_time);
+        printf("Number of elements : %d\nBrute force time = %f\nRecursive approach time = %f\n\n",n,brute_time,rec_time);
 
     }
     
