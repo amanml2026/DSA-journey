@@ -9,6 +9,8 @@ typedef struct{
 }info;
 
 info MaxSubarray(int A[],int len); // brute force approach - O(n^2)
+info MidCrossMaxSubarray(int A[],int low,int mid,int high);
+info MaxSubarrayRecursion(int A[],int low,int high);
 
 int main()
 {
@@ -16,6 +18,7 @@ int main()
     printf("%d,%d,%d\n",MaxSubarray(Test,17).left,MaxSubarray(Test,17).right,MaxSubarray(Test,17).sum);
     int Test2[] = {-4, 2, -3, 6, -1, 4, -7, 3, 5, -2, 4, -6, 2, 8, -3, 1, -5}; // test2
     printf("%d,%d,%d\n",MaxSubarray(Test2,17).left,MaxSubarray(Test2,17).right,MaxSubarray(Test2,17).sum);
+    printf("%d,%d,%d\n",MaxSubarrayRecursion(Test2,0,16).left,MaxSubarrayRecursion(Test2,0,16).right,MaxSubarrayRecursion(Test2,0,16).sum);
     return 0;
 
 }
@@ -84,7 +87,7 @@ info MaxSubarrayRecursion(int A[],int low,int high)
     }
     else
     {
-        int mid = (low + mid)/2;
+        int mid = (low + high)/2;
         info left,right,cross;
         left = MaxSubarrayRecursion(A,low,mid);
 
