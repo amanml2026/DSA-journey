@@ -18,15 +18,4 @@ This repository documents my progress as I learn, implement, and analyze DSA con
 * Algorithms
 
 
-## Progress
-
-🟩 Arrays
-⬜ Searching
-⬜ Sorting
-⬜ Recursion
-⬜ Linked Lists
-⬜ Stacks & Queues
-⬜ Trees
-⬜ Graphs
-
 > Learning DSA one concept at a time, with an emphasis on understanding how things work under the hood.
