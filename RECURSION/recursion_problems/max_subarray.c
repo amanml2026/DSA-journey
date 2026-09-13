@@ -22,7 +22,7 @@ int main()
     // printf("%d,%d,%d\n",MaxSubarrayRecursion(Test2,0,16).left,MaxSubarrayRecursion(Test2,0,16).right,MaxSubarrayRecursion(Test2,0,16).sum);
     
     // testing different sizes array for the crossover size
-    int sizes[] = {10, 20, 30, 40, 50,60, 70, 80, 90, 100};
+    int sizes[] = {100, 2000, 30000, 40000, 50000,60000, 70000, 80000, 90000, 100000};
     for(int k=0;k<10;k++)
     {
         int n = sizes[k];
@@ -46,7 +46,7 @@ int main()
         // time taken by the recursive approach
         double rec_time = (double)(rec_end-rec_start)/CLOCKS_PER_SEC;
 
-        printf("Number of elements : %d\nBrute force time = %f\nRecursive approach time = %f\n\n",n,brute_time,rec_time);
+        printf("Number of elements : %d\nBrute force time = %.8f\nRecursive approach time = %.8f\n\n",n,brute_time,rec_time);
 
     }
     
