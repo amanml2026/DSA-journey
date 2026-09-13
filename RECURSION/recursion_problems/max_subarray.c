@@ -45,3 +45,4 @@ info MaxSubarray(int A[],int len)
     return output;
 
 }
+// Divide and conquer (Recursion)
