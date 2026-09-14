@@ -12,43 +12,45 @@ typedef struct{
 info MaxSubarray(int A[],int len); // brute force approach - O(n^2)
 info MidCrossMaxSubarray(int A[],int low,int mid,int high);
 info MaxSubarrayRecursion(int A[],int low,int high);
+info Kadane_algo(int A[],int len);
 
 int main()
 {
-    // int Test[] = {-2, 3, -1, 5, -6, 4, 2, -1, 3, -8, 7, -2, 4, -1, 2, -5, 4}; // test1
-    // printf("%d,%d,%d\n",MaxSubarray(Test,17).left,MaxSubarray(Test,17).right,MaxSubarray(Test,17).sum);
+    int Test[] = {-2, 3, -1, 5, -6, 4, 2, -1, 3, -8, 7, -2, 4, -1, 2, -5, 4}; // test1
+    printf("%d,%d,%d\n",MaxSubarray(Test,17).left,MaxSubarray(Test,17).right,MaxSubarray(Test,17).sum);
+    printf("%d,%d,%d\n",Kadane_algo(Test,17).left,Kadane_algo(Test,17).right,Kadane_algo(Test,17).sum);
     // int Test2[] = {-4, 2, -3, 6, -1, 4, -7, 3, 5, -2, 4, -6, 2, 8, -3, 1, -5}; // test2
     // printf("%d,%d,%d\n",MaxSubarray(Test2,17).left,MaxSubarray(Test2,17).right,MaxSubarray(Test2,17).sum);
     // printf("%d,%d,%d\n",MaxSubarrayRecursion(Test2,0,16).left,MaxSubarrayRecursion(Test2,0,16).right,MaxSubarrayRecursion(Test2,0,16).sum);
     
     // testing different sizes array for the crossover size
-    int sizes[] = {100, 2000, 30000, 40000, 50000,60000, 70000, 80000, 90000, 100000};
-    for(int k=0;k<10;k++)
-    {
-        int n = sizes[k];
-        int A[n];
-        // random numbers generated in the array
-        for (int i = 0; i < n; i++)
-        {
-            A[i] = (rand() % 201) - 100;
-        }
-        // Brute force
-        clock_t brute_start = clock();
-        MaxSubarray(A,n);
-        clock_t brute_end = clock();
-        // time taken by brute force
-        double brute_time = (double)(brute_end-brute_start)/CLOCKS_PER_SEC;
+    // int sizes[] = {100, 2000, 30000, 40000, 50000,60000, 70000, 80000, 90000, 100000};
+    // for(int k=0;k<10;k++)
+    // {
+    //     int n = sizes[k];
+    //     int A[n];
+    //     // random numbers generated in the array
+    //     for (int i = 0; i < n; i++)
+    //     {
+    //         A[i] = (rand() % 201) - 100;
+    //     }
+    //     // Brute force
+    //     clock_t brute_start = clock();
+    //     MaxSubarray(A,n);
+    //     clock_t brute_end = clock();
+    //     // time taken by brute force
+    //     double brute_time = (double)(brute_end-brute_start)/CLOCKS_PER_SEC;
 
-        // Recursive approach
-        clock_t rec_start = clock();
-        MaxSubarrayRecursion(A,0,n-1);
-        clock_t rec_end = clock();
-        // time taken by the recursive approach
-        double rec_time = (double)(rec_end-rec_start)/CLOCKS_PER_SEC;
+    //     // Recursive approach
+    //     clock_t rec_start = clock();
+    //     MaxSubarrayRecursion(A,0,n-1);
+    //     clock_t rec_end = clock();
+    //     // time taken by the recursive approach
+    //     double rec_time = (double)(rec_end-rec_start)/CLOCKS_PER_SEC;
 
-        printf("Number of elements : %d\nBrute force time = %.8f\nRecursive approach time = %.8f\n\n",n,brute_time,rec_time);
+    //     printf("Number of elements : %d\nBrute force time = %.8f\nRecursive approach time = %.8f\n\n",n,brute_time,rec_time);
 
-    }
+    // }
     
     return 0;
 
@@ -145,6 +147,7 @@ info Kadane_algo(int A[],int len)
 {
     int i,j,sum,high,low;
     float Max_sum = -INFINITY;
+    i = 0;
     while (i<len)
     {
         sum = 0;
@@ -157,6 +160,7 @@ info Kadane_algo(int A[],int len)
                 high = j;
                 Max_sum = sum;
             }
+            j ++;
             if(sum < 0)
             {
                 break;
@@ -166,6 +170,5 @@ info Kadane_algo(int A[],int len)
         if(j==len){break;}
     }
     info output = {low,high,sum};
-    return output
-
+    return output;
 }
