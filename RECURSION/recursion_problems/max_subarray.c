@@ -164,11 +164,11 @@ info Kadane_algo(int A[],int len)
             if(sum < 0)
             {
                 break;
-            }
+            }  
         }
         if(sum<0){i=j;}
         if(j==len){break;}
     }
-    info output = {low,high,sum};
+    info output = {low,high,Max_sum};
     return output;
 }
