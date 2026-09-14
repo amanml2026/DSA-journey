@@ -59,7 +59,7 @@ int main()
         printf("Brute force time = %.8f\nRecursive approach time = %.8f\nKadane algorithm = %.8f\n\n",brute_time,rec_time,kad_time);
 
     }
-    
+    // difference is very large between the brute force and recursive approach/kadane algo.
     return 0;
 
 }
