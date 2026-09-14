@@ -140,3 +140,32 @@ info MaxSubarrayRecursion(int A[],int low,int high)
         }
     }
 }
+
+info Kadane_algo(int A[],int len)
+{
+    int i,j,sum,high,low;
+    float Max_sum = -INFINITY;
+    while (i<len)
+    {
+        sum = 0;
+        j = i;
+        while(j<len)
+        {
+            sum += A[j];
+            if (sum > Max_sum){
+                low = i;
+                high = j;
+                Max_sum = sum;
+            }
+            if(sum < 0)
+            {
+                break;
+            }
+        }
+        if(sum<0){i=j;}
+        if(j==len){break;}
+    }
+    info output = {low,high,sum};
+    return output
+
+}
