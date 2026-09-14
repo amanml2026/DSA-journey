@@ -10,9 +10,9 @@ typedef struct{
 }info;
 
 info MaxSubarray(int A[],int len); // brute force approach - O(n^2)
-info MidCrossMaxSubarray(int A[],int low,int mid,int high);
-info MaxSubarrayRecursion(int A[],int low,int high);
-info Kadane_algo(int A[],int len);
+info MidCrossMaxSubarray(int A[],int low,int mid,int high); // max. subarray while crossing the middle element - O(n)
+info MaxSubarrayRecursion(int A[],int low,int high); // recursive approach to solve max. subarray problem - O(nlogn)
+info Kadane_algo(int A[],int len); // kadane algorithm to solve max. subarray - O(n)
 
 int main()
 {
