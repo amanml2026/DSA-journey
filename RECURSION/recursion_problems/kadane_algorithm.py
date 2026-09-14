@@ -49,21 +49,24 @@ def MaxSubarray(A): # Brute force -> O(n^2)
 # TESTS 
 # Test1 = [-2, 4, -1, 2, 1, -5, 4, 3]
 # print(kadane_algo(Test1))
+Test = [-2, 3, -1, 5, -6, 4, 2, -1, 3, -8, 7, -2, 4, -1, 2, -5, 4]
+print(kadane_algo(Test))
 
 # Test2 = [-7,  4, -2,  5, -1,  3, -6,  8, -3,  2,
 # 4, -10,  6, -1,  2,  3, -2,  5, -8,  4,
 # -3,  7, -2,  6, -4, -5,  9, -1,  3, -2,
 # 4, -12,  5,  2, -1,  4, -3,  2, -1,  6]
 # print(kadane_algo(Test2))
-size = [10000,30000,50000]
-for n in size:
-    Test = [random.randint(-100,100) for _ in range(n)]
-    start_brute = time.perf_counter()
-    print("Sol. =",MaxSubarray(Test))
-    print(f"Time taken by brute force is {time.perf_counter()-start_brute}.")
-    start_kadane = time.perf_counter()
-    print("Sol. =",kadane_algo(Test))
-    print(f"Time taken by kadane algorithm is {time.perf_counter()-start_kadane}.")
-    print()
-    print()
+# size = [10000,30000,50000]
+# for n in size:
+#     Test = [random.randint(-100,100) for _ in range(n)]
+#     start_brute = time.perf_counter()
+#     print("Sol. =",MaxSubarray(Test))
+#     print(f"Time taken by brute force is {time.perf_counter()-start_brute}.")
+#     start_kadane = time.perf_counter()
+#     print("Sol. =",kadane_algo(Test))
+#     print(f"Time taken by kadane algorithm is {time.perf_counter()-start_kadane}.")
+#     print()
+#     print()
 # HUGE DIFFERENCE !!! *_*
+
