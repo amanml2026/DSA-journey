@@ -6,6 +6,8 @@ typedef struct{
     int M[10][10];
 }matrix;
 
+matrix Multiply(matrix A,matrix B);
+
 int main()
 {
     matrix A = {5,{{1,  2,  3,  4,  5},{6,  7,  8,  9,  10},{11, 12, 13, 14, 15},{16, 17, 18, 19, 20},{21, 22, 23, 24, 25}}};
@@ -33,4 +35,18 @@ matrix Multiply(matrix A,matrix B)
     }
     return C;
     
+}
+
+void Display(matrix A)
+{
+    int i,j,k,n;
+    n = A.size;
+    for(i=0;i<n;i++)
+    {
+        for(j=0;j<n;j++)
+        {
+            printf("%d  ",A.M[i][j]);
+        }
+        printf("\n");
+    }
 }
