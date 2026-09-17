@@ -36,3 +36,25 @@ int Search(int A[],int len,int target)
     }
     return -1; // Target not in the array
 }
+
+int BinarySearch (int A[],int l,int h,int target)
+{
+    if(l>h)
+    {
+        return -1;
+    }
+    int mid;
+    mid = (l+h)/2;
+
+    if (A[mid] == target)
+    {
+        return mid;
+    }
+    else if( target > A[mid])
+    {
+        return BinarySearch(A,mid+1,h,target);
+    }
+    else{
+        return BinarySearch(A,l,mid-1,target);
+    }
+}
