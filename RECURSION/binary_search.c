@@ -1,10 +1,14 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+int Search(int A[],int len,int target);
+
 int main()
 {
-
+    int Arr1[] = {-3,-1,0,4,6,7,11,13};
+    printf("%d",Search(Arr1,8,11));
     return 0;
+
 }
 
 int Search(int A[],int len,int target)
