@@ -47,22 +47,22 @@ int Search(int A[],int len,int target)
 
 int BinarySearch (int A[],int l,int h,int target)
 {
-    if(l>h)
+    if(l>h) // base case
     {
-        return -1;
+        return -1; // target not found
     }
     int mid;
     mid = (l+h)/2;
 
     if (A[mid] == target)
     {
-        return mid;
+        return mid; // target found
     }
     else if( target > A[mid])
     {
-        return BinarySearch(A,mid+1,h,target);
+        return BinarySearch(A,mid+1,h,target); // recursive call for the upper half elements
     }
     else{
-        return BinarySearch(A,l,mid-1,target);
+        return BinarySearch(A,l,mid-1,target); // recursive call for lower half elements
     }
 }
