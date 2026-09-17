@@ -2,6 +2,7 @@
 #include <stdlib.h>
 
 int Search(int A[],int len,int target); // binary search (while loop)
+int BinarySearch (int A[],int l,int h,int target);
 
 int main()
 {
@@ -9,6 +10,13 @@ int main()
     printf("%d\n",Search(Arr1,8,11));
     printf("%d\n",Search(Arr1,8,-3));
     printf("%d\n",Search(Arr1,8,5));
+
+    // binary search(recursive)
+
+    printf("\n");
+    printf("%d\n",BinarySearch(Arr1,0,7,11));
+    printf("%d\n",BinarySearch(Arr1,0,7,-3));
+    printf("%d\n",BinarySearch(Arr1,0,7,5));
     return 0;
 
 }
