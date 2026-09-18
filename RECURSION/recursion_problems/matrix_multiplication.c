@@ -60,4 +60,18 @@ void Display(matrix A)
 }
 
 // Recursive matrix multiplication
+matrix RecursiveMultiply(matrix A,matrix B)
+{
+    int n;
+    n = A.size;
+    matrix C;
+    C.size = n;
 
+    if(n == 1)
+    {
+        C.M[0][0] = (A.M[0][0]) * (B.M[0][0]);
+    }
+    else{
+
+    }
+}
