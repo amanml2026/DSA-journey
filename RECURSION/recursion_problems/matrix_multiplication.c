@@ -9,12 +9,13 @@ typedef struct{
 
 matrix Multiply(matrix A,matrix B); // matrix multiplication -> O(n^3)
 void Display(matrix A); // displaying the matrix
+matrix RecursiveMultiply(matrix A,matrix B);
 
 int main()
 {
     // Test matrices
-    matrix A = {5,{{1,  2,  3,  4,  5},{6,  7,  8,  9,  10},{11, 12, 13, 14, 15},{16, 17, 18, 19, 20},{21, 22, 23, 24, 25}}};
-    matrix B = {5,{{5,  4,  3,  2,  1},{10, 9,  8,  7,  6},{15, 14, 13, 12, 11},{20, 19, 18, 17, 16},{25, 24, 23, 22, 21}}};
+    matrix A = {4,{{1,  2,  3,  4},{6,  7,  8,  9},{11, 12, 13, 14},{16, 17, 18, 19}}};
+    matrix B = {4,{{5,  4,  3,  2},{10, 9,  8,  7},{15, 14, 13, 12},{20, 19, 18, 17}}};
     
     matrix C; // product matrix
     C = Multiply(A,B); // multiplication of A x B
