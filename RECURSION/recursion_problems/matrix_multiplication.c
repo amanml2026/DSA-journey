@@ -62,16 +62,51 @@ void Display(matrix A)
 // Recursive matrix multiplication
 matrix RecursiveMultiply(matrix A,matrix B)
 {
-    int n;
+    int n,i,j;
     n = A.size;
     matrix C;
+    matrix A_00,A_01,A_10,A_11,B_00,B_01,B_10,B_11;
     C.size = n;
+    int k = n/2;
 
     if(n == 1)
     {
         C.M[0][0] = (A.M[0][0]) * (B.M[0][0]);
+        return C;
     }
     else{
+        for(i=0;i<k;i++){
+            for(j=0;j<k;j++)
+            {
+                A_00.M[i][j] = A.M[i][j];
+                B_00.M[i][j] = B.M[i][j];
+            }
+        }
+        for(i=0;i<k;i++){
+            for(j=k;j<n;j++)
+            {
+                A_01.M[i][j-k] = A.M[i][j];
+                B_01.M[i][j-k] = B.M[i][j];
+            }
+        }
+        for(i=k;i<n;i++){
+            for(j=0;j<k;j++)
+            {
+                A_10.M[i-k][j] = A.M[i][j];
+                B_10.M[i-k][j] = B.M[i][j];
+            }
+        }        
+        for(i=k;i<n;i++){
+            for(j=k;j<n;j++)
+            {
+                A_11.M[i-k][j-k] = A.M[i][j];
+                B_11.M[i-k][j-k] = B.M[i][j];
+            }
+        }
+        C.M[0][0] = RecursiveMultiply(A_00,B_00) + RecursiveMultiply(A_01,B_10);
+        C.M[0][1] = RecursiveMultiply(A_00,B_00) + RecursiveMultiply(A_01,B_10);
+        C.M[1][0] = RecursiveMultiply(A_00,B_00) + RecursiveMultiply(A_01,B_10);
+        C.M[1][1] = RecursiveMultiply(A_00,B_00) + RecursiveMultiply(A_01,B_10);
 
     }
 }
