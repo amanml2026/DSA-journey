@@ -20,6 +20,12 @@ int main()
     matrix C; // product matrix
     C = Multiply(A,B); // multiplication of A x B
     Display(C); // displaying the output product matrix
+
+    printf("\n");
+    printf("\n");
+    matrix C2;
+    C2 = RecursiveMultiply(A,B);
+    Display(C);
     
     return 0;
 }
