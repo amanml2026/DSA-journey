@@ -67,7 +67,10 @@ matrix RecursiveMultiply(matrix A,matrix B)
     matrix C;
     matrix A_00,A_01,A_10,A_11,B_00,B_01,B_10,B_11;
     C.size = n;
+    matrix C_00,C_01,C_10,C_11;
     int k = n/2;
+    A_00.size = A_01.size = A_10.size = A_11.size = B_00.size = B_01.size = B_10.size = B_11.size = k;
+    C_00.size = C_01.size = C_10.size = C_11.size = k;
 
     if(n == 1)
     {
@@ -103,10 +106,41 @@ matrix RecursiveMultiply(matrix A,matrix B)
                 B_11.M[i-k][j-k] = B.M[i][j];
             }
         }
-        C.M[0][0] = RecursiveMultiply(A_00,B_00) + RecursiveMultiply(A_01,B_10);
-        C.M[0][1] = RecursiveMultiply(A_00,B_00) + RecursiveMultiply(A_01,B_10);
-        C.M[1][0] = RecursiveMultiply(A_00,B_00) + RecursiveMultiply(A_01,B_10);
-        C.M[1][1] = RecursiveMultiply(A_00,B_00) + RecursiveMultiply(A_01,B_10);
+    C_00 = RecursiveMultiply(A_00, B_00);
+    C_01 = RecursiveMultiply(A_00, B_01);
+    C_10 = RecursiveMultiply(A_10, B_00);
+    C_11 = RecursiveMultiply(A_10, B_01);
+
+    matrix temp;
+
+    temp = RecursiveMultiply(A_01, B_10);
+    for(i = 0; i < k; i++)
+        for(j = 0; j < k; j++)
+            C_00.M[i][j] += temp.M[i][j];
+
+    temp = RecursiveMultiply(A_01, B_11);
+    for(i = 0; i < k; i++)
+        for(j = 0; j < k; j++)
+            C_01.M[i][j] += temp.M[i][j];
+
+    temp = RecursiveMultiply(A_11, B_10);
+    for(i = 0; i < k; i++)
+        for(j = 0; j < k; j++)
+            C_10.M[i][j] += temp.M[i][j];
+
+    temp = RecursiveMultiply(A_11, B_11);
+    for(i = 0; i < k; i++)
+        for(j = 0; j < k; j++)
+            C_11.M[i][j] += temp.M[i][j];
 
     }
+    for(i=0;i<k;i++){
+        for(j=0;j<k;j++){
+            C.M[i][j] = C_00.M[i][j];
+            C.M[i+k][j] = C_10.M[i][j];
+            C.M[i][j+k] = C_01.M[i][j];
+            C.M[i+k][j+k] = C_11.M[i][j];
+        }
+    }
+    return C;
 }
