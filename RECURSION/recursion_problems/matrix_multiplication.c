@@ -154,5 +154,48 @@ matrix RecursiveMultiply(matrix A,matrix B)
 
 matrix Strassen(matrix A,matrix B)
 {
-    
+    int n,i,j;
+    n = A.size;
+    matrix C;
+    matrix A_00,A_01,A_10,A_11,B_00,B_01,B_10,B_11;
+    C.size = n;
+    matrix C_00,C_01,C_10,C_11;
+    int k = n/2;
+    A_00.size = A_01.size = A_10.size = A_11.size = B_00.size = B_01.size = B_10.size = B_11.size = k;
+    C_00.size = C_01.size = C_10.size = C_11.size = k;
+
+    if(n == 1)
+    {
+        C.M[0][0] = (A.M[0][0]) * (B.M[0][0]);
+        return C;
+    }
+    else{
+        for(i=0;i<k;i++){
+            for(j=0;j<k;j++)
+            {
+                A_00.M[i][j] = A.M[i][j];
+                B_00.M[i][j] = B.M[i][j];
+            }
+        }
+        for(i=0;i<k;i++){
+            for(j=k;j<n;j++)
+            {
+                A_01.M[i][j-k] = A.M[i][j];
+                B_01.M[i][j-k] = B.M[i][j];
+            }
+        }
+        for(i=k;i<n;i++){
+            for(j=0;j<k;j++)
+            {
+                A_10.M[i-k][j] = A.M[i][j];
+                B_10.M[i-k][j] = B.M[i][j];
+            }
+        }        
+        for(i=k;i<n;i++){
+            for(j=k;j<n;j++)
+            {
+                A_11.M[i-k][j-k] = A.M[i][j];
+                B_11.M[i-k][j-k] = B.M[i][j];
+            }
+        }   
 }
