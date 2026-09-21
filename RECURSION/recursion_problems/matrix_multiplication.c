@@ -10,6 +10,7 @@ typedef struct{
 matrix Multiply(matrix A,matrix B); // matrix multiplication -> O(n^3)
 void Display(matrix A); // displaying the matrix
 matrix RecursiveMultiply(matrix A,matrix B);
+matrix AddMatrix(matrix A, matrix B,int sign);
 
 int main()
 {
@@ -199,11 +200,20 @@ matrix Strassen(matrix A,matrix B)
                 B_11.M[i-k][j-k] = B.M[i][j];
             }
         }
-        
+        S1 = AddMatrix(B_01,B_11,-1);
+        S2 = AddMatrix(A_00,A_01,1);
+        S3 = AddMatrix(A_10,A_11,1);
+        S4 = AddMatrix(B_10,B_00,-1);
+        S5 = AddMatrix(A_00,A_11,1);
+        S6 = AddMatrix(B_00,B_11,1);
+        S7 = AddMatrix(A_01,A_11,-1);
+        S8 = AddMatrix(B_10,B_11,1);
+        S9 = AddMatrix(A_00,A_10,-1);
+        S10 = AddMatrix(B_00,B_01,1);
 }
 
 // Addition of matrices
-matrix Add(matrix A, matrix B,int sign)
+matrix AddMatrix(matrix A, matrix B,int sign)
 {
     int i,j,n;
     matrix C;
