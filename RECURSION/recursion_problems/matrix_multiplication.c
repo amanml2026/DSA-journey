@@ -160,10 +160,10 @@ matrix Strassen(matrix A,matrix B)
     matrix C;
     matrix A_00,A_01,A_10,A_11,B_00,B_01,B_10,B_11;
     C.size = n;
-    matrix C_00,C_01,C_10,C_11;
+    matrix C_00_a,C_00_b,C_00,C_01,C_10,C_11_a,C_11_b,C_11;
     int k = n/2;
     A_00.size = A_01.size = A_10.size = A_11.size = B_00.size = B_01.size = B_10.size = B_11.size = k;
-    C_00.size = C_01.size = C_10.size = C_11.size = k;
+    C_00.size = C_00_a.size = C_00_b.size = C_01.size = C_10.size = C_11_a.size = C_11_b.size =  C_11.size = k;
     matrix S1,S2,S3,S4,S5,S6,S7,S8,S9,S10,P1,P2,P3,P4,P5,P6,P7;
 
     if(n == 1)
@@ -218,6 +218,15 @@ matrix Strassen(matrix A,matrix B)
         P5 = Strassen(S5,S6);
         P6 = Strassen(S7,S8);
         P7 = Strassen(S9,S10);
+
+        C_00_a = AddMatrix(P5,P4,1);
+        C_00_b = AddMatrix(P6,P2,-1);
+        C_00 = AddMatrix(C_00_a,C_00_b,1);
+        C_01 = AddMatrix(P1,P2,1);
+        C_10 = AddMatrix(P3,P4,1);
+        C_11_a = AddMatrix(P5,P1,1);
+        C_11_b = AddMatrix(P3,P7,1);
+        C_11 = AddMatrix(C_11_a,C_11_b,-1);
 }
 
 // Addition of matrices
