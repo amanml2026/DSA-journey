@@ -210,6 +210,14 @@ matrix Strassen(matrix A,matrix B)
         S8 = AddMatrix(B_10,B_11,1);
         S9 = AddMatrix(A_00,A_10,-1);
         S10 = AddMatrix(B_00,B_01,1);
+
+        P1 = Strassen(A_00,S1);
+        P2 = Strassen(S2,B_11);
+        P3 = Strassen(S3,B_00);
+        P4 = Strassen(A_11,S4);
+        P5 = Strassen(S5,S6);
+        P6 = Strassen(S7,S8);
+        P7 = Strassen(S9,S10);
 }
 
 // Addition of matrices
