@@ -163,7 +163,7 @@ matrix Strassen(matrix A,matrix B)
     int k = n/2;
     A_00.size = A_01.size = A_10.size = A_11.size = B_00.size = B_01.size = B_10.size = B_11.size = k;
     C_00.size = C_01.size = C_10.size = C_11.size = k;
-    matrix S1,S2,S3,S4,S5,S6,S7,S8,S9,S10,P1,P2,P3,P4,P5,P6,P7
+    matrix S1,S2,S3,S4,S5,S6,S7,S8,S9,S10,P1,P2,P3,P4,P5,P6,P7;
 
     if(n == 1)
     {
@@ -199,5 +199,14 @@ matrix Strassen(matrix A,matrix B)
                 B_11.M[i-k][j-k] = B.M[i][j];
             }
         }
+
         
+}
+
+matrix Add(matrix A, matrix B, int sign)
+{
+    int i,j;
+    matrix C;
+    C.size = A.size;
+    
 }
