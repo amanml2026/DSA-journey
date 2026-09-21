@@ -227,6 +227,15 @@ matrix Strassen(matrix A,matrix B)
         C_11_a = AddMatrix(P5,P1,1);
         C_11_b = AddMatrix(P3,P7,1);
         C_11 = AddMatrix(C_11_a,C_11_b,-1);
+
+        for(i=0;i<k;i++){
+        for(j=0;j<k;j++){
+            C.M[i][j] = C_00.M[i][j];
+            C.M[i+k][j] = C_10.M[i][j];
+            C.M[i][j+k] = C_01.M[i][j];
+            C.M[i+k][j+k] = C_11.M[i][j];
+        }
+    }
 }
 
 // Addition of matrices
