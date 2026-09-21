@@ -63,7 +63,7 @@ matrix Multiply(matrix A,matrix B)
 void Display(matrix A)
 {
     int i,j,k,n;
-    n = A.size;
+    n = A.size; // size of matrix
     for(i=0;i<n;i++)
     {
         for(j=0;j<n;j++)
@@ -252,14 +252,14 @@ matrix AddMatrix(matrix A, matrix B,int sign)
 {
     int i,j,n;
     matrix C;
-    n = A.size;
-    C.size = n;
+    n = A.size; // size of the matrices
+    C.size = n; // setting same size for the addition matrix
     for(i=0;i<n;i++){
         for(j=0;j<n;j++)
         {
-            C.M[i][j] = A.M[i][j] + (sign*(B.M[i][j]));
+            C.M[i][j] = A.M[i][j] + (sign*(B.M[i][j])); // Addition/subtraction (depending on sign)
         }
     }
-    return C;
+    return C; // addition matrix
 }
 
