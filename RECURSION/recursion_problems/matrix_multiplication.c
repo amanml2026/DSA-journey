@@ -11,6 +11,7 @@ matrix Multiply(matrix A,matrix B); // matrix multiplication -> O(n^3)
 void Display(matrix A); // displaying the matrix
 matrix RecursiveMultiply(matrix A,matrix B);
 matrix AddMatrix(matrix A, matrix B,int sign);
+matrix Strassen(matrix A,matrix B);
 
 int main()
 {
@@ -26,7 +27,13 @@ int main()
     printf("\n");
     matrix C2;
     C2 = RecursiveMultiply(A,B);
-    Display(C);
+    Display(C2);
+
+    printf("\n");
+    printf("\n");
+    matrix C3;
+    C3 = Strassen(A,B);
+    Display(C3);
     
     return 0;
 }
@@ -234,7 +241,9 @@ matrix Strassen(matrix A,matrix B)
             C.M[i+k][j] = C_10.M[i][j];
             C.M[i][j+k] = C_01.M[i][j];
             C.M[i+k][j+k] = C_11.M[i][j];
+            }
         }
+        return C;
     }
 }
 
