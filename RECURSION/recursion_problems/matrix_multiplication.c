@@ -199,14 +199,22 @@ matrix Strassen(matrix A,matrix B)
                 B_11.M[i-k][j-k] = B.M[i][j];
             }
         }
-
         
 }
 
-matrix Add(matrix A, matrix B, int sign)
+// Addition of matrices
+matrix Add(matrix A, matrix B,int sign)
 {
-    int i,j;
+    int i,j,n;
     matrix C;
-    C.size = A.size;
-    
+    n = A.size;
+    C.size = n;
+    for(i=0;i<n;i++){
+        for(j=0;j<n;j++)
+        {
+            C.M[i][j] = A.M[i][j] + (sign*(B.M[i][j]));
+        }
+    }
+    return C;
 }
+
