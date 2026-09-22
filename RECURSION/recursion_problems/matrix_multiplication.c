@@ -163,13 +163,14 @@ matrix RecursiveMultiply(matrix A,matrix B)
     return C; // Product of two given matrices
 }
 
-
+// strassen's algorithm for matrix multiplication -> O(n^2.81)
 matrix Strassen(matrix A,matrix B)
 {
+    // Same steps as recursive function -> Creating the submatrices
     int n,i,j;
     n = A.size;
     matrix C;
-    matrix A_00,A_01,A_10,A_11,B_00,B_01,B_10,B_11;
+    matrix A_00,A_01,A_10,A_11,B_00,B_01,B_10,B_11; 
     C.size = n;
     matrix C_00_a,C_00_b,C_00,C_01,C_10,C_11_a,C_11_b,C_11;
     int k = n/2;
@@ -177,12 +178,13 @@ matrix Strassen(matrix A,matrix B)
     C_00.size = C_00_a.size = C_00_b.size = C_01.size = C_10.size = C_11_a.size = C_11_b.size =  C_11.size = k;
     matrix S1,S2,S3,S4,S5,S6,S7,S8,S9,S10,P1,P2,P3,P4,P5,P6,P7;
 
-    if(n == 1)
+    if(n == 1) // base case
     {
         C.M[0][0] = (A.M[0][0]) * (B.M[0][0]);
         return C;
     }
-    else{
+    else    // copying elements into submatrices
+    {
         for(i=0;i<k;i++){
             for(j=0;j<k;j++)
             {
@@ -211,6 +213,7 @@ matrix Strassen(matrix A,matrix B)
                 B_11.M[i-k][j-k] = B.M[i][j];
             }
         }
+        // sum matrices (using the helper function)
         S1 = AddMatrix(B_01,B_11,-1);
         S2 = AddMatrix(A_00,A_01,1);
         S3 = AddMatrix(A_10,A_11,1);
@@ -221,7 +224,7 @@ matrix Strassen(matrix A,matrix B)
         S8 = AddMatrix(B_10,B_11,1);
         S9 = AddMatrix(A_00,A_10,-1);
         S10 = AddMatrix(B_00,B_01,1);
-
+        // product of the matrices (using recursion)
         P1 = Strassen(A_00,S1);
         P2 = Strassen(S2,B_11);
         P3 = Strassen(S3,B_00);
@@ -230,6 +233,7 @@ matrix Strassen(matrix A,matrix B)
         P6 = Strassen(S7,S8);
         P7 = Strassen(S9,S10);
 
+        // adding the submatrices(supporting product ones) to form the product matrix submatrices
         C_00_a = AddMatrix(P5,P4,1);
         C_00_b = AddMatrix(P6,P2,-1);
         C_00 = AddMatrix(C_00_a,C_00_b,1);
@@ -238,7 +242,7 @@ matrix Strassen(matrix A,matrix B)
         C_11_a = AddMatrix(P5,P1,1);
         C_11_b = AddMatrix(P3,P7,1);
         C_11 = AddMatrix(C_11_a,C_11_b,-1);
-
+        // generating the product matrix using the submatrices
         for(i=0;i<k;i++){
         for(j=0;j<k;j++){
             C.M[i][j] = C_00.M[i][j];
@@ -247,7 +251,7 @@ matrix Strassen(matrix A,matrix B)
             C.M[i+k][j+k] = C_11.M[i][j];
             }
         }
-        return C;
+        return C; // product matrices
     }
 }
 
