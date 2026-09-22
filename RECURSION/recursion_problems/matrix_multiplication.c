@@ -74,25 +74,26 @@ void Display(matrix A)
     }
 }
 
-// Recursive matrix multiplication
+// Recursive matrix multiplication -> O(n^3)
 matrix RecursiveMultiply(matrix A,matrix B)
 {
     int n,i,j;
-    n = A.size;
-    matrix C;
-    matrix A_00,A_01,A_10,A_11,B_00,B_01,B_10,B_11;
-    C.size = n;
-    matrix C_00,C_01,C_10,C_11;
-    int k = n/2;
-    A_00.size = A_01.size = A_10.size = A_11.size = B_00.size = B_01.size = B_10.size = B_11.size = k;
+    n = A.size; // size of the input matrices
+    matrix C; // product matrix C
+    matrix A_00,A_01,A_10,A_11,B_00,B_01,B_10,B_11; // Submatrices of A and B divided into four parts
+    C.size = n; // size of output matrix
+    matrix C_00,C_01,C_10,C_11; // dividing the product matrix into submatrices
+    int k = n/2; // size of submatrices 
+    A_00.size = A_01.size = A_10.size = A_11.size = B_00.size = B_01.size = B_10.size = B_11.size = k; // setting size to the submatrices
     C_00.size = C_01.size = C_10.size = C_11.size = k;
 
-    if(n == 1)
+    if(n == 1) // Base case
     {
         C.M[0][0] = (A.M[0][0]) * (B.M[0][0]);
         return C;
     }
-    else{
+    else // Copying elements to create submatrices -> O(n^2)
+    {
         for(i=0;i<k;i++){
             for(j=0;j<k;j++)
             {
@@ -121,13 +122,14 @@ matrix RecursiveMultiply(matrix A,matrix B)
                 B_11.M[i-k][j-k] = B.M[i][j];
             }
         }
+    // recursive multiplication
     C_00 = RecursiveMultiply(A_00, B_00);
     C_01 = RecursiveMultiply(A_00, B_01);
     C_10 = RecursiveMultiply(A_10, B_00);
     C_11 = RecursiveMultiply(A_10, B_01);
 
-    matrix temp;
-
+    matrix temp; // temporary matrix to support the creation of product matrix C
+    // adding the elements to create the product matrix
     temp = RecursiveMultiply(A_01, B_10);
     for(i = 0; i < k; i++)
         for(j = 0; j < k; j++)
@@ -149,6 +151,7 @@ matrix RecursiveMultiply(matrix A,matrix B)
             C_11.M[i][j] += temp.M[i][j];
 
     }
+    // making the product matrix from its submatrices
     for(i=0;i<k;i++){
         for(j=0;j<k;j++){
             C.M[i][j] = C_00.M[i][j];
@@ -157,8 +160,9 @@ matrix RecursiveMultiply(matrix A,matrix B)
             C.M[i+k][j+k] = C_11.M[i][j];
         }
     }
-    return C;
+    return C; // Product of two given matrices
 }
+
 
 matrix Strassen(matrix A,matrix B)
 {
