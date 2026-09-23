@@ -126,7 +126,7 @@ matrix RecursiveMultiply(matrix A,matrix B)
     C_00 = AddMatrix(RecursiveMultiply(A_00, B_00),RecursiveMultiply(A_01, B_10),1);
     C_01 = AddMatrix(RecursiveMultiply(A_00, B_01),RecursiveMultiply(A_01, B_11),1);
     C_10 = AddMatrix(RecursiveMultiply(A_10, B_00),RecursiveMultiply(A_11, B_10),1);
-    C_11 = AddMatrix((A_10, B_01),RecursiveMultiply(A_11, B_11),1);
+    C_11 = AddMatrix(RecursiveMultiply(A_10, B_01),RecursiveMultiply(A_11, B_11),1);
 
     }
     // making the product matrix from its submatrices
