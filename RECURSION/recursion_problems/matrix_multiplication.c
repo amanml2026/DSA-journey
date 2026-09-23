@@ -123,32 +123,10 @@ matrix RecursiveMultiply(matrix A,matrix B)
             }
         }
     // recursive multiplication
-    C_00 = RecursiveMultiply(A_00, B_00);
-    C_01 = RecursiveMultiply(A_00, B_01);
-    C_10 = RecursiveMultiply(A_10, B_00);
-    C_11 = RecursiveMultiply(A_10, B_01);
-
-    matrix temp; // temporary matrix to support the creation of product matrix C
-    // adding the elements to create the product matrix
-    temp = RecursiveMultiply(A_01, B_10);
-    for(i = 0; i < k; i++)
-        for(j = 0; j < k; j++)
-            C_00.M[i][j] += temp.M[i][j];
-
-    temp = RecursiveMultiply(A_01, B_11);
-    for(i = 0; i < k; i++)
-        for(j = 0; j < k; j++)
-            C_01.M[i][j] += temp.M[i][j];
-
-    temp = RecursiveMultiply(A_11, B_10);
-    for(i = 0; i < k; i++)
-        for(j = 0; j < k; j++)
-            C_10.M[i][j] += temp.M[i][j];
-
-    temp = RecursiveMultiply(A_11, B_11);
-    for(i = 0; i < k; i++)
-        for(j = 0; j < k; j++)
-            C_11.M[i][j] += temp.M[i][j];
+    C_00 = AddMatrix(RecursiveMultiply(A_00, B_00),RecursiveMultiply(A_01, B_10),1);
+    C_01 = AddMatrix(RecursiveMultiply(A_00, B_01),RecursiveMultiply(A_01, B_11),1);
+    C_10 = AddMatrix(RecursiveMultiply(A_10, B_00),RecursiveMultiply(A_11, B_10),1);
+    C_11 = AddMatrix((A_10, B_01),RecursiveMultiply(A_11, B_11),1);
 
     }
     // making the product matrix from its submatrices
