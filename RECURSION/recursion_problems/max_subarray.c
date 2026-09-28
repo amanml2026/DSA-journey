@@ -156,27 +156,27 @@ info Kadane_algo(int A[],int len)
     int i,j,sum,high,low;
     float Max_sum = -INFINITY;
     i = 0;
-    while (i<len)
+    while (i<len) // boundary
     {
         sum = 0;
         j = i;
-        while(j<len)
+        while(j<len) // boundary
         {
-            sum += A[j];
-            if (sum > Max_sum){
+            sum += A[j]; // increasing sum -> enlarging the subarray
+            if (sum > Max_sum){ // max. subarray 
                 low = i;
                 high = j;
                 Max_sum = sum;
             }
-            j ++;
-            if(sum < 0)
+            j ++; // incrementing j
+            if(sum < 0) // if sum becomes negative break out of the loop
             {
                 break;
             }  
         }
-        if(sum<0){i=j;}
-        if(j==len){break;}
+        if(sum<0){i=j;} // setting i 
+        if(j==len){break;} // complete array scanned
     }
     info output = {low,high,Max_sum};
-    return output;
+    return output; // max subarray output
 }
