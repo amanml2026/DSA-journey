@@ -67,17 +67,17 @@ int main()
 // Brute force approach
 info MaxSubarray(int A[],int len)
 {
-    int l,r,low,high,sum;
+    int l,r,low,high,sum; // variables
     float MaxSum;
     MaxSum = -INFINITY;
 
-    for(l=0;l<len;l++)
+    for(l=0;l<len;l++) // iterating over each and every element
     {
-        sum = 0;
-        for(r=l;r<len;r++)
+        sum = 0; // initially sum = 0
+        for(r=l;r<len;r++) // iterating over each subarray of each element
         {
-            sum += A[r];
-            if(sum > MaxSum)
+            sum += A[r]; // increasing the subarray sum
+            if(sum > MaxSum) // max sum found till now
             {
                 MaxSum = sum;
                 low = l;
@@ -85,7 +85,7 @@ info MaxSubarray(int A[],int len)
             }
         }
     }
-    info output = {low,high,MaxSum};
+    info output = {low,high,MaxSum}; // max subarray
     return output;
 
 }
