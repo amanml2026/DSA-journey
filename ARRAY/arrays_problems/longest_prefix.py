@@ -13,3 +13,7 @@ def longestCommonPrefix(strs: list[str]) -> str:
                 return res
         res += strs[0][i]
     return res
+
+#Test
+test = ["dance","dag","danger","damage"]
+print(longestCommonPrefix(test))
