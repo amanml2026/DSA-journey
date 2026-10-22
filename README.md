@@ -42,7 +42,7 @@ The theoretical frameworks and methodologies applied throughout this repository 
 * **Cormen, Leiserson, Rivest, Stein (CLRS):** *Introduction to Algorithms* (Focus: Chapters 3, 4, 6, 7, 10-12, 15, 22, 24)
 * **MIT 6.006:** *Introduction to Algorithms*
 * **MIT 6.042J:** *Mathematics for Computer Science*
-* **Bryant & O'Hallaron (CS:APP):** *Computer Systems: A Programmer's Perspective* (Focus: Chapter 6 - Memory Hierarchy)
+* **Bryant & O'Hallaron (CS:APP):** *Computer Systems: A Programmer's Perspective* (Focus : Chapter 6 - Memory Hierarchy)
 
 ---
 
