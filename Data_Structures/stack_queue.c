@@ -12,3 +12,23 @@ typedef struct Queue{
     int tail;
 }Queue;
 
+int main()
+{
+    return 0;
+}
+
+// STACK FUNCTIONS:
+
+// Inserting elements -> O(1)
+void push(Stack *S,int x)
+{
+    S->top ++;
+    S->S[S->top] = x;
+}
+
+// deleting and popping out elements -> O(1)
+int pop(Stack *S)
+{
+    S->top --;
+    return S->S[S->top + 1];
+}
