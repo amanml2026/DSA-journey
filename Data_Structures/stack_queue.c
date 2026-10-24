@@ -19,6 +19,15 @@ int main()
 
 // STACK FUNCTIONS:
 
+// empty check:
+int isEmptyStack(Stack S)
+{
+    if(S.top == -1){
+        return 1;
+    }
+    return 0;
+}
+
 // Inserting elements -> O(1)
 void push(Stack *S,int x)
 {
@@ -29,6 +38,12 @@ void push(Stack *S,int x)
 // deleting and popping out elements -> O(1)
 int pop(Stack *S)
 {
-    S->top --;
-    return S->S[S->top + 1];
+    if (isEmptyStack(*S))
+    {
+        printf("Stack is empty!");
+    }
+    else{
+        S->top --;
+        return S->S[S->top + 1];
+    }
 }
