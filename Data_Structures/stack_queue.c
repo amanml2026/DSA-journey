@@ -12,8 +12,20 @@ typedef struct Queue{
     int tail;
 }Queue;
 
+int isEmptyStack(Stack S);
+void push(Stack *S,int x);
+int pop(Stack *S);
+void DisplayStack(Stack S);
+
 int main()
 {
+    Stack S = {{},-1};
+    push(&S,4);
+    push(&S,7);
+    push(&S,10);
+    printf("Element popped : %i\n",pop(&S));
+    DisplayStack(S);
+
     return 0;
 }
 
