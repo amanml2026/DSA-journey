@@ -47,3 +47,14 @@ int pop(Stack *S)
         return S->S[S->top + 1];
     }
 }
+
+// stack display
+void DisplayStack(Stack S)
+{
+    int i;
+    for(i=0;i<=S.top;i++)
+    {
+        printf("%i",S.S[i]);
+        printf("\t");
+    }
+}
