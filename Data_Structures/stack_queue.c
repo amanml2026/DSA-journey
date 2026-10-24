@@ -25,6 +25,10 @@ int main()
     push(&S,10);
     printf("Element popped : %i\n",pop(&S));
     DisplayStack(S);
+    push(&S,8);
+    push(&S,5);
+    pop(&S);
+    DisplayStack(S);
 
     return 0;
 }
