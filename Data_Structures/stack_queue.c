@@ -67,6 +67,6 @@ void DisplayStack(Stack S)
     for(i=0;i<=S.top;i++)
     {
         printf("%i",S.S[i]);
-        printf("\t");
+        printf(" ");
     }
 }
