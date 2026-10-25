@@ -69,11 +69,11 @@ void pop(Stack *S)
 {
     if (isEmptyStack(*S))
     {
-        printf("Stack is empty!");
+        printf("Stack is empty!\n");
     }
     else{
         S->top --;
-        printf("Element popped : %i",S->S[S->top + 1]);
+        printf("Element popped : %i\n",S->S[S->top + 1]);
     }
 }
 
@@ -123,5 +123,5 @@ void Deque(Queue *Q)
     else{
         Q->head ++;
     }
-    printf("Element dequed : %i",x);
+    printf("Element dequed : %i\n",x);
 }
