@@ -74,3 +74,14 @@ void DisplayStack(Stack S)
         printf(" ");
     }
 }
+
+// queue display
+void DisplayQueue(Queue Q)
+{
+    int i;
+    for(i=Q.head;i<Q.tail;i++)
+    {
+        printf("%i",Q.Q[i]);
+        printf(" ");
+    }   
+}
