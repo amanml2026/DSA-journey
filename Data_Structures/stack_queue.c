@@ -37,6 +37,11 @@ int main()
     Queue Q = {{},0,0,0};
     Enqueue(&Q,2);
     Enqueue(&Q,6);
+    DisplayQueue(Q);
+    Deque(&Q);
+    Enqueue(&Q,7);
+    Deque(&Q);
+    DisplayQueue(Q);
 
     return 0;
 }
