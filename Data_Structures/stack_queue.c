@@ -17,6 +17,9 @@ int isEmptyStack(Stack S);
 void push(Stack *S,int x);
 void pop(Stack *S);
 void DisplayStack(Stack S);
+void Enqueue(Queue *Q,int x);
+void DisplayQueue(Queue Q);
+void Deque(Queue *Q);
 
 int main()
 {
@@ -30,6 +33,10 @@ int main()
     push(&S,5);
     pop(&S);
     DisplayStack(S);
+
+    Queue Q = {{},0,0,0};
+    Enqueue(&Q,2);
+    Enqueue(&Q,6);
 
     return 0;
 }
@@ -90,8 +97,8 @@ void DisplayQueue(Queue Q)
 // Insertion (enqueue) -> O(1)
 void Enqueue(Queue *Q,int x)
 {
-    
     Q->Q[Q->tail] = x;
+    Q->len ++;
     if (Q->tail == Q->len-1){
         Q->tail = 0;
     }
@@ -104,6 +111,7 @@ void Deque(Queue *Q)
 {
     int x;
     x = Q->Q[Q->head];
+    Q->len -- ;
     if (Q->head == Q->len-1){
         Q->head = 0;
     }
