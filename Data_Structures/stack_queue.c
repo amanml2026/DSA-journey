@@ -15,7 +15,7 @@ typedef struct Queue{
 
 int isEmptyStack(Stack S);
 void push(Stack *S,int x);
-int pop(Stack *S);
+void pop(Stack *S);
 void DisplayStack(Stack S);
 
 int main()
@@ -24,7 +24,7 @@ int main()
     push(&S,4);
     push(&S,7);
     push(&S,10);
-    printf("Element popped : %i\n",pop(&S));
+    pop(&S);
     DisplayStack(S);
     push(&S,8);
     push(&S,5);
@@ -53,7 +53,7 @@ void push(Stack *S,int x)
 }
 
 // deleting and popping out elements -> O(1)
-int pop(Stack *S)
+void pop(Stack *S)
 {
     if (isEmptyStack(*S))
     {
@@ -61,7 +61,7 @@ int pop(Stack *S)
     }
     else{
         S->top --;
-        return S->S[S->top + 1];
+        printf("Element popped : %i",S->S[S->top + 1]);
     }
 }
 
@@ -93,5 +93,11 @@ void Enqueue(Queue *Q,int x)
     int len;
     
     Q->Q[Q->tail] = x;
-    if (Q->tail) ==
+    if (Q->tail == Q->len-1){
+        Q->tail = 0;
+    }
+    else{
+        Q->tail ++;
+    }
 }
+
