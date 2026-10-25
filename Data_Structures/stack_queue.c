@@ -2,12 +2,12 @@
 #include <stdlib.h>
 #define CAPACITY 10
 typedef struct Stack{
-    int S[10];
+    int S[CAPACITY];
     int top;
 }Stack;
 
 typedef struct Queue{
-    int Q[10];
+    int Q[CAPACITY];
     int head;
     int tail;
     int len;
@@ -93,35 +93,40 @@ void DisplayStack(Stack S)
 void DisplayQueue(Queue Q)
 {
     int i;
-    for(i=Q.head;i<Q.tail;i++)
+    for(i=0;i<Q.len;i++)
     {
-        printf("%i",Q.Q[i]);
+        int idx;
+        idx = (Q.head + i)%CAPACITY;
+        printf("%i",Q.Q[idx]);
         printf(" ");
     }   
 }
 // Insertion (enqueue) -> O(1)
 void Enqueue(Queue *Q,int x)
 {
+{
+    if (Q->len == CAPACITY) {
+        printf("\nQueue is full!\n");
+        return;
+    }
+
     Q->Q[Q->tail] = x;
-    Q->len ++;
-    if (Q->tail == Q->len-1){
-        Q->tail = 0;
-    }
-    else{
-        Q->tail ++;
-    }
+    Q->tail = (Q->tail + 1) % CAPACITY;
+    Q->len++;
+}
 }
 // deletion(deque) -> O(1)
 void Deque(Queue *Q)
 {
-    int x;
-    x = Q->Q[Q->head];
-    Q->len -- ;
-    if (Q->head == Q->len-1){
-        Q->head = 0;
+    if (Q->len == 0) {
+        printf("\nQueue is empty!\n");
+        return;
     }
-    else{
-        Q->head ++;
-    }
-    printf("\nElement dequed : %i\n",x);
+
+    int x = Q->Q[Q->head];
+
+    Q->head = (Q->head + 1) % CAPACITY;
+    Q->len--;
+
+    printf("\nElement dequeued: %d\n", x);
 }
