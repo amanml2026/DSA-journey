@@ -34,6 +34,7 @@ int main()
     pop(&S);
     DisplayStack(S);
 
+    printf("\n");
     Queue Q = {{},0,0,0};
     Enqueue(&Q,2);
     Enqueue(&Q,6);
@@ -103,7 +104,7 @@ void DisplayQueue(Queue Q)
 }
 // Insertion (enqueue) -> O(1)
 void Enqueue(Queue *Q,int x)
-{
+
 {
     if (Q->len == CAPACITY) {
         printf("\nQueue is full!\n");
@@ -114,7 +115,7 @@ void Enqueue(Queue *Q,int x)
     Q->tail = (Q->tail + 1) % CAPACITY;
     Q->len++;
 }
-}
+
 // deletion(deque) -> O(1)
 void Deque(Queue *Q)
 {
