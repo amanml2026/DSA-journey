@@ -90,7 +90,6 @@ void DisplayQueue(Queue Q)
 // Insertion (enqueue) -> O(1)
 void Enqueue(Queue *Q,int x)
 {
-    int len;
     
     Q->Q[Q->tail] = x;
     if (Q->tail == Q->len-1){
@@ -100,4 +99,16 @@ void Enqueue(Queue *Q,int x)
         Q->tail ++;
     }
 }
-
+// deletion(deque) -> O(1)
+void Deque(Queue *Q)
+{
+    int x;
+    x = Q->Q[Q->head];
+    if (Q->head == Q->len-1){
+        Q->head = 0;
+    }
+    else{
+        Q->head ++;
+    }
+    printf("Element dequed : %i",x);
+}
