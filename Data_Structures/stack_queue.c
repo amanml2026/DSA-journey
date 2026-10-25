@@ -10,6 +10,7 @@ typedef struct Queue{
     int Q[10];
     int head;
     int tail;
+    int len;
 }Queue;
 
 int isEmptyStack(Stack S);
@@ -74,6 +75,7 @@ void DisplayStack(Stack S)
         printf(" ");
     }
 }
+// QUEUE FUNCTIONS:
 
 // queue display
 void DisplayQueue(Queue Q)
@@ -84,4 +86,12 @@ void DisplayQueue(Queue Q)
         printf("%i",Q.Q[i]);
         printf(" ");
     }   
+}
+// Insertion (enqueue) -> O(1)
+void Enqueue(Queue *Q,int x)
+{
+    int len;
+    
+    Q->Q[Q->tail] = x;
+    if (Q->tail) ==
 }
