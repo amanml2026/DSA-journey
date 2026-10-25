@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-
+#define CAPACITY 10
 typedef struct Stack{
     int S[10];
     int top;
@@ -69,11 +69,11 @@ void pop(Stack *S)
 {
     if (isEmptyStack(*S))
     {
-        printf("Stack is empty!\n");
+        printf("\nStack is empty!\n");
     }
     else{
         S->top --;
-        printf("Element popped : %i\n",S->S[S->top + 1]);
+        printf("\nElement popped : %i\n",S->S[S->top + 1]);
     }
 }
 
@@ -123,5 +123,5 @@ void Deque(Queue *Q)
     else{
         Q->head ++;
     }
-    printf("Element dequed : %i\n",x);
+    printf("\nElement dequed : %i\n",x);
 }
