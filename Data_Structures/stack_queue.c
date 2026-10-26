@@ -16,6 +16,7 @@ typedef struct Queue{
     int len;
 }Queue;
 
+// function prototypes
 int isEmptyStack(Stack S); // checking if stack is empty
 void push(Stack *S,int x); // pushing elements in stack
 void pop(Stack *S); // popping elements from stack
@@ -64,8 +65,16 @@ int isEmptyStack(Stack S)
 // Inserting elements -> O(1)
 void push(Stack *S,int x)
 {
-    S->top ++;
-    S->S[S->top] = x;
+    if(S->top == CAPACITY-1)
+    {
+        printf("Stack is full.");
+        return;
+    }
+    else{
+        S->top ++;
+        S->S[S->top] = x;
+    }
+
 }
 
 // deleting and popping out elements -> O(1)
