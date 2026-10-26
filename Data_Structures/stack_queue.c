@@ -1,11 +1,14 @@
 #include <stdio.h>
 #include <stdlib.h>
-#define CAPACITY 10
+#define CAPACITY 10 // capacity of the stack/queue
+
+// stack
 typedef struct Stack{
     int S[CAPACITY];
     int top;
 }Stack;
 
+// queue
 typedef struct Queue{
     int Q[CAPACITY];
     int head;
@@ -13,17 +16,17 @@ typedef struct Queue{
     int len;
 }Queue;
 
-int isEmptyStack(Stack S);
-void push(Stack *S,int x);
-void pop(Stack *S);
-void DisplayStack(Stack S);
-void Enqueue(Queue *Q,int x);
-void DisplayQueue(Queue Q);
-void Deque(Queue *Q);
+int isEmptyStack(Stack S); // checking if stack is empty
+void push(Stack *S,int x); // pushing elements in stack
+void pop(Stack *S); // popping elements from stack
+void DisplayStack(Stack S); // displaying the elements of the stack
+void Enqueue(Queue *Q,int x); // enqueuing elements in queue
+void DisplayQueue(Queue Q); // displaying elements of queue
+void Deque(Queue *Q); // dequeuing elements from queue
 
 int main()
 {
-    Stack S = {{},-1};
+    Stack S = {{},-1}; // empty stack with s.top = -1 (no element)
     push(&S,4);
     push(&S,7);
     push(&S,10);
@@ -35,7 +38,7 @@ int main()
     DisplayStack(S);
 
     printf("\n");
-    Queue Q = {{},0,0,0};
+    Queue Q = {{},0,0,0}; // empty queue with head,tail,len = 0,0,0
     Enqueue(&Q,2);
     Enqueue(&Q,6);
     DisplayQueue(Q);
