@@ -65,14 +65,14 @@ int isEmptyStack(Stack S)
 // Inserting elements -> O(1)
 void push(Stack *S,int x)
 {
-    if(S->top == CAPACITY-1)
+    if(S->top == CAPACITY-1) // pointer is at last index
     {
         printf("Stack is full.");
         return;
     }
     else{
         S->top ++;
-        S->S[S->top] = x;
+        S->S[S->top] = x; // inserting the element
     }
 
 }
@@ -80,12 +80,12 @@ void push(Stack *S,int x)
 // deleting and popping out elements -> O(1)
 void pop(Stack *S)
 {
-    if (isEmptyStack(*S))
+    if (isEmptyStack(*S)) // stack empty
     {
         printf("\nStack is empty!\n");
     }
     else{
-        S->top --;
+        S->top --; // decreasing the pointer to the top/recently added element
         printf("\nElement popped : %i\n",S->S[S->top + 1]);
     }
 }
@@ -94,7 +94,7 @@ void pop(Stack *S)
 void DisplayStack(Stack S)
 {
     int i;
-    for(i=0;i<=S.top;i++)
+    for(i=0;i<=S.top;i++) // iterating to elements of the stack 
     {
         printf("%i",S.S[i]);
         printf(" ");
