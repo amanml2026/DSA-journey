@@ -109,7 +109,7 @@ void DisplayQueue(Queue Q)
     for(i=0;i<Q.len;i++)
     {
         int idx;
-        idx = (Q.head + i)%CAPACITY;
+        idx = (Q.head + i)%CAPACITY; // as we are using circular array
         printf("%i",Q.Q[idx]);
         printf(" ");
     }   
@@ -118,11 +118,12 @@ void DisplayQueue(Queue Q)
 void Enqueue(Queue *Q,int x)
 
 {
-    if (Q->len == CAPACITY) {
+    if (Q->len == CAPACITY) { // overflow
         printf("\nQueue is full!\n");
         return;
     }
 
+    // inserting the element
     Q->Q[Q->tail] = x;
     Q->tail = (Q->tail + 1) % CAPACITY;
     Q->len++;
@@ -131,11 +132,12 @@ void Enqueue(Queue *Q,int x)
 // deletion(deque) -> O(1)
 void Deque(Queue *Q)
 {
+    // underflow
     if (Q->len == 0) {
         printf("\nQueue is empty!\n");
         return;
     }
-
+    // deletion
     int x = Q->Q[Q->head];
 
     Q->head = (Q->head + 1) % CAPACITY;
