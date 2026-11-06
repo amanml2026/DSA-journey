@@ -16,5 +16,7 @@ typedef struct DoubleList{
 
 int main()
 {
+
     return 0;
 }
+
