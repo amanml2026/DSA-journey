@@ -21,11 +21,12 @@ int main()
 }
 
 // singly linked list functions:
+
+// inserting an object(node)
 void Insert(List **head,List *x)
 {
     if (*head == NULL)
     {
-        
         *head = x;
         x->next = NULL;
     }
